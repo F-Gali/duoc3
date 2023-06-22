@@ -1,0 +1,311 @@
+body {
+    background: url('https://rare-gallery.com/uploads/posts/578157-retro-games.jpg') no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    background-size: cover;
+    -o-background-size: cover;
+}
+.material-symbols-outlined {
+  font-variation-settings:
+  'FILL' 0,
+  'wght' 400,
+  'GRAD' 0,
+  'opsz' 48
+}
+.header-img-1{
+  width: 100%;
+  aspect-ratio: 1/1;
+
+}
+.header-img-2{
+  width: 100%;
+  aspect-ratio: 1/1;
+  transform:scaleX(-1);
+}
+
+.articulo-index{
+  font-size: 20px;
+  font-family: 'Times New Roman', Times, serif;
+}
+.articulo-index-1{
+  font-size: 20px;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.img-nav{
+  width: 30%;
+  aspect-ratio: 1/1;
+  transform: scaleX(-1);
+}
+
+.fondo{
+  background-color: #fdf0d5;
+}
+
+.fondo-card-body{
+  background-color: #faf4e8
+  ;
+}
+
+.fondo-nav{
+  background-color: #fed9b7;
+  border-radius: 0.5rem;
+}
+
+.fondo-header{
+  background-color: #256bcb;
+}
+
+
+.footer-css{
+  margin-top: 2rem;
+  padding: 2rem;
+}
+
+.mapa{
+  text-decoration: none;
+  color: inherit;
+}
+
+.link{
+  text-decoration: none;
+  color: inherit;
+  font-style: italic;
+  
+}
+
+
+.hr-footer{ 
+  
+  border:         none;
+  border-left:    1px solid hsla(200, 10%, 50%,100);
+  height:         auto;
+  width:          1px;       
+}
+
+
+.profile-pic{
+  width: 90%;
+  aspect-ratio: 1/1;
+  border-radius: 50%;
+  background-size: cover;
+  background-position: center;
+  display: inline-block;
+}
+
+.profile-pic.austin{
+  background-image: url('https://static.onecms.io/wp-content/uploads/sites/6/2008/05/stanley_l-2.jpg');
+}
+
+.profile-pic.jorge{
+  background-image: url('https://upload.wikimedia.org/wikipedia/commons/9/96/Brian_Baumgartner_LF.JPG');
+}
+.profile-pic.alexi{
+  /* https://img.buzzfeed.com/buzzfeed-static/static/2022-04/5/10/asset/5eaf303076cb/sub-buzz-1973-1649155366-11.jpg?downsize=700%3A%2A&output-quality=auto&output-format=auto */
+  background-image: url('https://im.indiatimes.in/content/2023/Apr/Untitled-design---2023-04-13T132449024_6437b559b9d11.png?w=820&h=540&cc=1');
+}
+
+.profile{
+  text-align: center;
+}
+
+.musiquera{
+  float: right;
+  background-color: #fed9b7;
+}
+
+.nav-style{
+  min-height: 70px;
+}
+
+#infoJuego{
+  position: fixed;
+  bottom: 0px;left: 0px;right: 0px;
+  background-color: rgba(0, 0, 0, 0.819);
+  color: white;
+  min-height: 20vh;
+  z-index: 1999;
+  backdrop-filter: blur(10px);
+}
+
+#infoJuego>div {position: relative;}
+
+#infoCerrar{
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  font-size: 26px;
+  cursor: pointer;
+  padding: 12px;
+  font-weight: bolder;
+  text-align: center;
+}
+
+.g_info{
+  cursor: pointer;
+}
+
+.detalle-articulo{
+  font-size: 15px;
+  font-family: 'Times New Roman', Times, serif;
+  color: gray;
+}
+.detalle-articulo-1{
+  font-size: 15px;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  color: rgb(80, 121, 146);
+}
+
+.img-articulo{
+  height: 90%;
+  width: 100%;
+  aspect-ratio: 1/1;
+}
+.img-articulo-1{
+  height: 80%;
+  width: 90%;
+  max-height: 342px;
+  aspect-ratio: 1/1;
+}
+.div-articulo{
+  max-height: 360px;
+}
+
+.div-articulo-1{
+  max-height: 380px;
+  max-width: 742px;
+}
+
+#util{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+#cHora{ 
+  text-align: right; 
+  display: inline-block;
+  border-right: 1px solid rgba(0,0,0,.3);
+  padding-right: 16px;
+}
+.cMin{
+  font-size: 26px;
+  font-weight: bolder;
+  line-height: 20px;
+}
+#cClima{
+  display: inline-block;
+}
+#cClima img{
+  height: 100%;
+  float: left;
+}
+#cClima div{display: inline-block;text-align: left;}
+#cClima * {margin: 0; padding: 0;}
+#cClima h5 { text-transform: capitalize; }
+
+#MapaPieDePagina{
+  width: 100%;
+  aspect-ratio: 3/2;
+  border-radius: 16px;
+  position: relative;
+  box-shadow: rgba(0, 0, 0, 0.2) 0px 3px 6px 3px;
+}
+.leaflet-container{background-color: #212529;}
+.leaflet-control-zoom{filter: invert(1);}
+.leaflet-control-attribution {display: none;}
+.leaflet-popup-content-wrapper , .leaflet-popup-tip{
+  background-color: #363a4a;
+  color: white;
+}
+#cTema{
+  display: inline-block;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+}
+#cTema span{
+  padding: 8px;
+  cursor: pointer;
+  border-radius: 50%;
+  margin: 0 3px;
+}
+#cTema span:hover{
+  background-color: rgba(0,0,0,.1);
+}
+.cont_mens{
+  float : right;
+}
+#btnAdmin span{
+  float: left;
+}
+
+.itemContacto{
+  width: 100%;
+  border: 1px solid rgba(0, 0, 0, .15);
+  padding: 16px;
+  margin-top: 16px;
+  border-radius: 16px;
+}
+.perfil{
+  float: left;
+  padding-right: 16px;
+}
+.profilep {
+  float: left;
+  font-size: 28px;
+  margin-right: 6px;
+}
+.infodesc {
+  font-size: 16px;
+  letter-spacing: 1px;
+  opacity: .7;
+}
+.infocampo {
+  margin: 0 6px;
+  display: inline-block;
+}
+.infocampo h6{
+  font-size: 14px;
+  font-weight: bolder;
+  margin: 0 ;
+}
+.infomensaje{
+  position: relative;
+  background-color: #fed9b7;
+  margin-top: 16px;
+  border-radius: 16px;
+  padding: 8px 16px;
+}
+.infomensaje::before{
+  content: "";
+  position: absolute;
+  top: -10px;
+  left: 32px;
+  width: 0; 
+  height: 0; 
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  
+  border-bottom: 10px solid #fed9b7;
+}
+.infomensaje b{
+  font-size: 14px;
+}
+.oculto {
+  display: none;
+}
+@media only screen and (max-width: 768px){
+  #carouselExampleFade { display: none !important;}
+}
+@media only screen and (max-width:991px){
+  #util {
+    display: block;
+    width: 100%;
+    text-align: right;
+  }
+  #MapaPieDePagina{
+    width: 100%;
+    aspect-ratio: 1/1;
+    border-radius: 16px;
+  }
+}

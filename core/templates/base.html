@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    {% load static %}
+     
+    <title>{% block title %}{% endblock %} | Django Site</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/custom.css' %}">
+</head>
+<body>
+    <h1>Hola buenos días</h1>
+    <nav class="navbar sticky-top nav-style navbar-expand-lg fondo-nav m-3">
+        <div class="container-fluid fondo-nav">
+            <a class="navbar-brand" href="{% url 'home' %}">L 3 3 k s</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="{% url 'home' %}">Inicio</a>
+                    </li>
+                    <li class="nav-item dropdown" data-bs-theme="light">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            Leaks
+                        </a>
+                        <ul class="dropdown-menu fondo-nav">
+                            <li><a class="dropdown-item" href="LeaksNintendo.html">Nintendo</a></li>
+                            <li><a class="dropdown-item" href="LeaksSony.html">Sony</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contactanos.html">Contactanos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="about.html">Sobre Nosotros</a>
+                    </li>
+                </ul>
+            </div>
+            <div id="util">
+                <span id="cHora"></span>
+                <div id="cClima"></div>
+                <div id="cTema" onclick="lumos()">
+                    <span class="material-symbols-outlined">dark_mode</span>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <main>
+        {% block first_content %}{% endblock %}
+
+        {% block second_content %}{% endblock %}
+    </main>
+    <footer class="mt-auto">
+        <div class="container-fluid bg-dark text-warning footer-css" id="footer">
+            <div class="row">
+                <div class="col-md-4">
+                    <h4>Mapa del Sitio</h1>
+                        <hr>
+                        <ul>
+                            <li><a class="mapa" href="{% url 'home' %}">Inicio</a></li>
+                            <li><a class="mapa" href="">Leaks de Nintendo - WIP</a></li>
+                            <li><a class="mapa" href="">Leaks de Sony - WIP</a></li>
+                            <li><a class="mapa" href="">Contáctanos - WIP</a></li>
+                            <li><a class="mapa" href="">Sobre Nosotros - WIP</a></li>
+                        </ul>
+                </div>
+                
+                <div class="col-md-4">
+                    <h4>Contáctanos</h4>
+                    <hr>
+                    <div>
+                        <a href="contactanos.html">
+                            <button type="button" class="btn btn-warning" id="kanye">Contáctanos</button>
+                        </a>
+                    </div>
+                    <br>
+                    <h4>Acceso Staff</h4>
+                    <hr>
+                    <a href="admin.html">
+                        <button type="button" class="btn btn-warning" id="btnAdmin">
+                            <span class="material-symbols-outlined">key</span>Acceso Admin
+                        </button>
+                    </a>
+                </div>
+                <div class="col-md-4">
+                    <!-- <img style="width: 100%;" src="https://i.kym-cdn.com/photos/images/newsfeed/000/856/438/e1c.jpg">     -->
+                    <div id="MapaPieDePagina"></div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+</body>
+</html>
