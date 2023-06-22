@@ -13,7 +13,7 @@ let api = "https://api.openweathermap.org/data/2.5/weather?lat=💧&lon=🔥&app
 // El siguiente bool alterna el si mostrar el clima o no (openweather tiene cuotas) 
 // y si alternar entre tilemaps bonitos (con cuota) o no.
 // En el caso de los mapas hay una alternativa, en el caso de la temperatura, no.
-let usarApiConCuota = true;
+let usarApiConCuota = false;
 
 $(document).ready(()=>{
     // Fecha y Hora
@@ -81,11 +81,11 @@ function lumos( forzarOscuro ){
     
     if(localStorage.getItem("lumos")==='light'){
         $( "link" ).last()[0].href = "../static/css/custom.css";
-        $( ".navbar-nav" )[0].children[1].setAttribute( "data-bs-theme" , "light" );
+        $( ".navbar-nav" )[0].children[1].setAttribute( "data-falsebs-theme" , "light" );
         $( "form" )[0]?.setAttribute( "data-bs-theme" , "light" );
     }
     else{
-        $( "link" ).last()[0].href = "{% static 'css/custom_dark.css' %}";
+        $( "link" ).last()[0].href = "../static/css/custom_dark.css";
         $( ".navbar-nav" )[0].children[1].setAttribute( "data-bs-theme" , "dark" );
         $( "form" )[0]?.setAttribute( "data-bs-theme" , "dark" );
     }
