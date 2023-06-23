@@ -1,3 +1,46 @@
+header {
+  position: relative;
+  background-color: black;
+  height: 75vh;
+  min-height: 25rem;
+
+  overflow: hidden;
+
+}
+
+header video {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  z-index: 0;
+  -ms-transform: translateX(-50%) translateY(-50%);
+  -moz-transform: translateX(-50%) translateY(-50%);
+  -webkit-transform: translateX(-50%) translateY(-50%);
+  transform: translateX(-50%) translateY(-50%);
+  
+}
+
+header .container {
+  position: relative;
+  z-index: 2;
+}
+
+header .overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-color: black;
+  opacity: 0.5;
+  z-index: 1;
+}
+
+
 body {
     background: url('https://c4.wallpaperflare.com/wallpaper/263/673/74/the-sky-minimalism-night-stars-wallpaper-preview.jpg') no-repeat center center fixed;
     -webkit-background-size: cover;
@@ -34,23 +77,31 @@ body {
 }
 
 .fondo{
-  background-color: #313248;
+  background-color: #0a0a0a;
   color: whitesmoke;
+  width: calc(100% + 6rem);
+  margin-left: -3rem;
+  margin-top: -3rem;
 }
 main > section > .container > .card { border: none !important; }
 
 .fondo-card-body{
-  background-color: #27283e;
+  background-color: #131212;
+  
   color: whitesmoke;
 }
 .sinbordes{
   background-color: #191c44;
-  border: none !important;
-  border-radius: 12px;
+
+  border-color: #ffffff;
+  border-width: 0.5px;
+  border-style: solid;
+  border-radius: 5px;
   overflow: hidden;
   transition: transform .2s;
 }
 .sinbordes:hover{
+  
   transform: scale(1.05);
 }
 .sinbordes .btn {
@@ -62,9 +113,9 @@ main > section > .container > .card { border: none !important; }
 }
 
 .fondo-nav{
-  background-color: #27283e;
+  background-color: #0a0a0a;
   color: white;
-  border-radius: 0.5rem;
+  
 }
 nav .nav-link{ color: white; }
 nav .nav-link.show{ color: white !important;}
@@ -86,8 +137,10 @@ nav .nav-link.active{ color: white !important; font-weight: bolder;}
 
 
 .footer-css{
-  margin-top: 2rem;
   padding: 2rem;
+  border-top-color: #ffffff;
+  border-top-width: 1px;
+  border-top-style: solid;
 }
 
 .mapa{
@@ -144,6 +197,9 @@ nav .nav-link.active{ color: white !important; font-weight: bolder;}
 
 .nav-style{
   min-height: 70px;
+  border-bottom-color: #ffffff;
+  border-bottom-width: 1px;
+  border-bottom-style: solid;
 }
 
 .navbar-brand{
@@ -262,7 +318,7 @@ nav .nav-link.active{ color: white !important; font-weight: bolder;}
 }
 
 #footer {
-  background-color: #27283e !important;
+  background-color: #0a0a0a !important;
 }
 #btnAdmin span{
   float: left;
@@ -345,4 +401,19 @@ nav .nav-link.active{ color: white !important; font-weight: bolder;}
 }
 @media only screen and (max-width: 768px){
   #carouselExampleFade { display: none !important;}
+}
+
+
+.principal{
+  max-width: initial !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+.principal-contact{
+  max-width: initial !important;
+  margin: 0 !important;
+}
+.card-button{
+  cursor: pointer;
 }

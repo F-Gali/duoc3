@@ -81,6 +81,9 @@ body {
 
 .fondo{
   background-color: #fdf0d5;
+  width: calc(100% + 6rem);
+  margin-left: -3rem;
+  margin-top: -3rem;
 }
 
 .fondo-card-body{
@@ -90,7 +93,6 @@ body {
 
 .fondo-nav{
   background-color: #fed9b7;
-  border-radius: 0.5rem;
 }
 
 .fondo-header{
@@ -99,7 +101,7 @@ body {
 
 
 .footer-css{
-  margin-top: 2rem;
+
   padding: 2rem;
 }
 
@@ -349,4 +351,31 @@ body {
     aspect-ratio: 1/1;
     border-radius: 16px;
   }
+}
+
+.principal{
+  max-width: initial !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+.principal-contact{
+  max-width: initial !important;
+  margin: 0 !important;
+}
+.card-button{
+  cursor: pointer;
+}
+
+.sinbordes{
+  background-color:#faf4e8;
+  border-color: #ffffff;
+  border-width: 0.5px;
+  border-style: solid;
+  border-radius: 5px;
+  overflow: hidden;
+  transition: transform .2s;
+}
+.sinbordes:hover{
+  
+  transform: scale(1.05);
 }
