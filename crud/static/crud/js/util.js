@@ -80,12 +80,12 @@ function lumos( forzarOscuro ){
     $("#cTema").children()[0].innerText = localStorage.getItem("lumos") === 'light' ? "dark_mode" : "light_mode";
     
     if(localStorage.getItem("lumos")==='light'){
-        $( "link" ).last()[0].href = "../static/css/custom.css";
+        $( "link" ).last()[0].href = "../../static/crud/css/custom.css";
         $( ".navbar-nav" )[0].children[1].setAttribute( "data-falsebs-theme" , "light" );
         $( "form" )[0]?.setAttribute( "data-bs-theme" , "light" );
     }
     else{
-        $( "link" ).last()[0].href = "../static/css/custom_dark.css";
+        $( "link" ).last()[0].href = "../../static/crud/css/custom_dark.css";
         $( ".navbar-nav" )[0].children[1].setAttribute( "data-bs-theme" , "dark" );
         $( "form" )[0]?.setAttribute( "data-bs-theme" , "dark" );
     }
