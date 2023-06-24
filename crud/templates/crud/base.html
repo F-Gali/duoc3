@@ -33,27 +33,11 @@
                     <li class="nav-item">
                         <a class="nav-link {% block home %}{% endblock %}" aria-current="page" href="{% url 'home' %}">Inicio</a>
                     </li>
-                    <li class="nav-item dropdown" data-bs-theme="light">
-                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
-                            aria-expanded="false">
-                            Leaks
-                        </a>
-                        <ul class="dropdown-menu fondo-nav">
-                            <li><a class="dropdown-item" href="LeaksNintendo.html">Nintendo</a></li>
-                            <li><a class="dropdown-item" href="LeaksSony.html">Sony</a></li>
-                        </ul>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link {% block contact %}{% endblock %} " href="{% url 'contact' %}">Contactanos</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link {% block about %}{% endblock %}" href="{% url 'about' %}">Sobre Nosotros</a>
-                    </li>
                     <li>
                         <a class="nav-link {% block lista %}{% endblock %}" href="{% url 'lista-articulos' %}">Lista Articulos</a>
                     </li>
                     <li>
-                        <a class="nav-link {% block admin %}{% endblock %}" href="{% url 'admin:index' %}">Admin</a>
+                        <a class="nav-link" href="{% url 'admin:index' %}">Admin</a>
                     </li>
                 </ul>
             </div>
