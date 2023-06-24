@@ -49,6 +49,12 @@
                     <li class="nav-item">
                         <a class="nav-link {% block about %}{% endblock %}" href="{% url 'about' %}">Sobre Nosotros</a>
                     </li>
+                    <li>
+                        <a class="nav-link {% block lista %}{% endblock %}" href="{% url 'lista-articulos' %}">Lista Articulos</a>
+                    </li>
+                    <li>
+                        <a class="nav-link {% block admin %}{% endblock %}" href="{% url 'admin:index' %}">Admin</a>
+                    </li>
                 </ul>
             </div>
             <div id="util">

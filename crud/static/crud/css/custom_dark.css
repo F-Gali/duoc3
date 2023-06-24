@@ -417,3 +417,7 @@ nav .nav-link.active{ color: white !important; font-weight: bolder;}
 .card-button{
   cursor: pointer;
 }
+
+.texto-fila{
+  color: whitesmoke;
+}
