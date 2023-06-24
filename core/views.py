@@ -13,3 +13,7 @@ def about(request):
 
 def contact(request):
     return render(request,'contact.html')
+
+# IGNORAR ESTO DE ABAJO, HACIENDO PRUEBAS
+# def compania(request, id):
+#     return HttpResponse( "nombre de la huea %s" % id)
