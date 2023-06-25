@@ -380,3 +380,66 @@ body {
   transform: scale(1.05);
 }
 
+article{
+  max-width: 700px;
+  margin: auto;
+}
+
+.material-symbols-outlined {
+  font-variation-settings:
+  'FILL' 0,
+  'wght' 400,
+  'GRAD' 0,
+  'opsz' 48
+}
+/*  CSS DEL EDITOR  */
+.herramientas{
+  height: 50px;
+  width: 100%;
+  border-radius: 6px 6px 0 0px;
+}
+.fright{
+  float: right;
+}
+.herramientas button > *{
+  vertical-align: middle;
+}
+.herramientas button{
+  border: none; outline: none;
+  background-color: transparent;
+  font-size: 14px;
+  line-height: 14px;
+  padding: 10px 12px;
+  margin: 0px 0px 0 0;
+  border-radius: 6px;
+  vertical-align: middle;
+  color: #303030;
+  border: 1px solid var(--bs-border-color);
+}
+.icono {font-size: 16px;}
+.herramientas button > label{
+  position: relative;
+  top: -2px;
+  cursor: pointer;
+}
+.herramientas button:hover{
+  color: 303030;
+  border-color: #303030;
+  background-color: rgba(255,255,255,.05);
+}
+#areaedit {
+  width: 100%;
+  min-height: 100px;
+  border: 1px solid var(--bs-border-color);
+  background-color: #ffffff;
+  border-radius: 6px;
+  padding: 16px;
+}
+#areaedit:hover, #areaedit:focus , article input[type=text]:hover , article input[type=text]:focus{
+  outline: none !important;
+  box-shadow: none !important;
+  border: 1px solid #333333;
+}
+article .controles *{
+  float: right;
+}

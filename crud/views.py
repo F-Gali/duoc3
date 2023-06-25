@@ -1,4 +1,5 @@
-from django.shortcuts import render, redirect, reverse  
+from django.shortcuts import render, redirect;
+from django.urls import reverse;
 
 from .models import *
 from .forms import *
@@ -11,7 +12,16 @@ def listado_articulos(request):
     return render(request,'crud/articulos.html',context)
 
 def crear_articulo(request):
-    return render(request,'crud/nuevo_articulo.html')
+    form = ArticuloForm();
+    context = { 'form' : form }
+    if request.method == 'POST':
+        form = ArticuloForm(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()
+            return redirect(reverse('lista-articulos') + '?exito')
+        else:
+            return redirect(request.path + '?error')
+    return render(request,'crud/nuevo_articulo.html', context)
 
 def editar_articulo(request,idArticulo):
     try:
