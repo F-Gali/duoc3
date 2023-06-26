@@ -90,7 +90,7 @@ def editar_compania(request,idCompania):
                 return redirect(reverse('editar-compania') + idCompania)
 
         context = {'form':form}
-        return render(request,'crud/editar_copania.html',context)
+        return render(request,'crud/editar_compania.html',context)
     #except:
     #   return render(request,'crud/editar_compania.html' + '?NO_EXIST') 
     

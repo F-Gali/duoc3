@@ -34,15 +34,25 @@
                     <li class="nav-item">
                         <a class="nav-link {% block home %}{% endblock %}" aria-current="page" href="{% url 'home' %}">Inicio</a>
                     </li>
-                    <li>
-                        <a class="nav-link {% block lista %}{% endblock %}" href="{% url 'lista-articulos' %}">Lista Articulos</a>
+                    <li class="nav-item dropdown" data-bs-theme="light">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            Listas
+                        </a>
+                        <ul class="dropdown-menu fondo-nav">
+                            <li><a class="nav-link {% block lista %}{% endblock %}" href="{% url 'lista-articulos' %}">Lista Articulos</a></li>
+                            <li><a class="nav-link {% block compania %}{% endblock %}" href="{% url 'lista-compania' %}">Lista Companias</a></li>
+                        </ul>
                     </li>
-                    <li>
-                        <a class="nav-link {% block agregar %}{% endblock %}" href="{% url 'crear-articulo' %}">Nuevo Articulo</a>
-                    </li>
-
-                    <li>
-                        <a class="nav-link {% block compania %}{% endblock %}" href="{% url 'lista-compania' %}">Lista Companias</a>
+                    <li class="nav-item dropdown" data-bs-theme="light">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            Agregar
+                        </a>
+                        <ul class="dropdown-menu fondo-nav">
+                            <li><a class="nav-link {% block agregar %}{% endblock %}" href="{% url 'crear-articulo' %}">Nuevo Articulo</a></li>
+                            <li><a class="nav-link " href="">Nueva Compañia</a></li>
+                        </ul>
                     </li>
                     <li>
                         <a class="nav-link {% block messages %}{% endblock %}" href="{% url 'mensajes' %}">Mensajes</a>
