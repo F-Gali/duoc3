@@ -19,19 +19,48 @@
         </br>
     </br>
                 {% for m in mensajes %}
-                            <article class="border  border-black p-2 mb-2 border-opacity-25 mb-5">
-                              
+                            <article class="border  border-black p-2 mb-2 border-opacity-25 mb-5 mensaje">                      
                                 <p class="detalle-articulo text-center">
                                     Autor:{{m.nombre}} {{m.apellido}} | Rut: {{m.rut}} | Email: {{m.email}} | Fecha creación:{{m.creacion|date:"d-m-Y"}} 
                                 </p>
                                 <p class="articulo-index">
                                     {{m.mensaje}}
                                 </p>
+                                <a class="btn btn-danger modal-borrar btn-eliminar" data-bs-toggle="modal" data-bs-target="#staticBackdrop" data-href="{% url 'eliminar-mensaje' idMensaje=m.id %}">
+                                    <span class="material-symbols-outlined">
+                                        delete
+                                    </span>
+                                </a> 
                             </article>
                 {% endfor %}
             </div>
         </div>
     </div>
 </section>
-
+<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="staticBackdropLabel">Alerta</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <h6 class="modal-title">Borrar el mensaje seleccionado?<br>Esta acción no se puede deshacer.</h6>
+            </div>
+            <div class="modal-footer text-center">
+                <a class="btn btn-primary" id="confirmar-borrar" href="#">Borrar</a>
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Volver</button>
+                
+            </div>
+        </div>
+    </div>
+</div>  
+{% block extra_js %}
+<script>
+    $('.modal-borrar').on('click',function(){
+        const href = $(this).attr('data-href');
+        $('#confirmar-borrar').attr('href',href);
+    });
+</script>
+{% endblock %}
 {% endblock %}

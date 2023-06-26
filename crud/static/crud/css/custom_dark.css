@@ -500,3 +500,12 @@ article select option{
 article .controles *{
   float: right;
 }
+
+.btn-eliminar{
+  float:right;
+}
+.mensaje::after{
+  content:"";
+  display: block;
+  clear: both;
+}

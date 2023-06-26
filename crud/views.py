@@ -94,3 +94,22 @@ def editar_compania(request,idCompania):
     #except:
     #   return render(request,'crud/editar_compania.html' + '?NO_EXIST') 
     
+def listado_comentarios(request):
+    context = {'comentario':Comentario.objects.all()}
+    return render(request,'crud/comentarios.html',context)
+
+def eliminar_comentario(request,idComentario):
+    try:
+            comentario = Comentario.objects.get(id = idComentario)
+            comentario.delete()
+            return redirect(reverse('lista-comentarios') + '?exito')
+    except:
+            return redirect(reverse('lista-comentarios') + '?error')
+
+def eliminar_mensaje(request,idMensaje):
+    try:
+            mensaje = Mensaje.objects.get(id = idMensaje)
+            mensaje.delete()
+            return redirect(reverse('mensajes') + '?exito')
+    except:
+            return redirect(reverse('mensajes') + '?error')
