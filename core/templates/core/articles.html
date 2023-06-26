@@ -24,7 +24,7 @@
                                     Autor:{{a.autor}} | Fecha creación:{{a.creacion|date:"d-m-Y"}} 
                                 </p>
                                 <p class="articulo-index">
-                                    {{a.html_body|safe}}
+                                    {{a.html_body|safe|slice:"0:320"}}...<a href="{% url 'article-complete' id_articulo=a.id %}">Ver más</a>
                                 </p>
                             </article>
                 {% endfor %}

@@ -23,7 +23,7 @@ from django.contrib import admin
 
 from django.db import models
 from django.contrib import admin
-from .models import Compania, Articulo, Mensaje
+from .models import Compania, Articulo, Mensaje, Comentario
 
 class CompaniaAdmin(admin.ModelAdmin):
     readonly_fields = ('id', 'creacion')
@@ -38,6 +38,11 @@ class ArticuloAdmin(admin.ModelAdmin):
 class MensajeAdmin(admin.ModelAdmin):
     readonly_fields = ('id', 'creacion')
     list_display = ('id', 'nombre', 'mensaje')
+    ordering = ('creacion',)
+
+class ComentarioAdmin(admin.ModelAdmin):
+    readonly_fields = ('id', 'creacion')
+    list_display = ('id', 'autor', 'mensaje','id_articulo')
     ordering = ('creacion',)
 
 # class Compania(models.Model):
@@ -62,3 +67,4 @@ class MensajeAdmin(admin.ModelAdmin):
 admin.site.register(Compania, CompaniaAdmin)
 admin.site.register(Articulo, ArticuloAdmin)
 admin.site.register(Mensaje, MensajeAdmin)
+admin.site.register(Comentario, ComentarioAdmin)

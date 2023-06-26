@@ -15,6 +15,8 @@ class Articulo(models.Model):
     id_compania = models.ForeignKey(Compania, on_delete=models.CASCADE)
     creacion = models.DateTimeField(verbose_name='Fecha Registro', auto_now_add=True)
     actualizacion = models.DateTimeField(verbose_name='Fecha Actualización', auto_now=True)
+    def __str__(self):
+        return str(self.titulo)
 
 # RIP Contraseña y fecha nacimiento porque no tienen sentido
 class Mensaje(models.Model):
@@ -25,6 +27,11 @@ class Mensaje(models.Model):
     mensaje = models.CharField(max_length=100)
     creacion = models.DateTimeField(verbose_name='Fecha Registro', auto_now_add=True)
 
+class Comentario(models.Model):
+    autor = models.CharField(max_length=100,default='Anonimo')
+    mensaje = models.CharField(max_length=100)
+    id_articulo = models.ForeignKey(Articulo, on_delete=models.CASCADE)
+    creacion = models.DateTimeField(verbose_name='Fecha Registro', auto_now_add=True)
 # Nota
 # Admin de django
 # john_romero_carmack
