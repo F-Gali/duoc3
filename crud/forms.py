@@ -73,16 +73,13 @@ class ComentarioForm(ModelForm):
         model = Comentario
         fields = [
             'autor',
-            'mensaje',
-            'id_articulo'
+            'mensaje'
         ]
         labels = {
             'autor':'Autor',
-            'mensaje':'Mensaje',
-            'id_articulo':'Articulo'
+            'mensaje':'Mensaje'
         }
         widgets = {
             'autor':forms.TextInput(attrs={'class':'form-control'}),
-            'mensaje':forms.Textarea(attrs={'class':'form-control'}),
-            'id_articulo':forms.Select(attrs={'class':'form-control'})
+            'mensaje':forms.Textarea(attrs={'class':'form-control'})
         }

@@ -1,4 +1,5 @@
-from django.shortcuts import render, HttpResponse, redirect,reverse
+from django.shortcuts import render, HttpResponse, redirect
+from django.urls import reverse
 from crud.models import *
 from crud.forms import *
 # Create your views here.
@@ -42,14 +43,25 @@ def articulo_completo(request,id_articulo):
             if request.method == 'POST':
                 form = ComentarioForm(request.POST, request.FILES)
                 if form.is_valid():
-                    form.save()
+                    obj = Comentario.objects.create(
+                        autor = form.cleaned_data.get('autor'),
+                        mensaje = form.cleaned_data.get('mensaje'),
+                        id_articulo_id = int(id_articulo)
+                    )
+                    obj.save()
                     return redirect(request.path + '?exito')
                 else:
+                    for field in form:
+                        for error in field.errors:
+                            print(error)
+                    print("ERROR 1")
                     return redirect(request.path + '?error')
             return render(request,'core/article.html',context)
         else:
+            print("ERROR 2")
             return redirect(reverse('articles') + '?NO_EXIST')
-    except:
+    except Exception as e:
+        print(e)
         return redirect(reverse('articles') + '?NO_EXIST')
 
 def crear_articulo(request):
@@ -64,6 +76,3 @@ def crear_articulo(request):
             return redirect(request.path + '?error')
     return render(request,'crud/nuevo_articulo.html', context)
 
-# IGNORAR ESTO DE ABAJO, HACIENDO PRUEBAS
-# def compania(request, id):
-#     return HttpResponse( "nombre de la huea %s" % id)
