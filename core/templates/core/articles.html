@@ -1,0 +1,36 @@
+{% extends 'core/base.html' %}
+
+{% block title %}Articulos{% endblock %}
+{% block articles %}active{% endblock %}
+{% load static %}
+
+{% block first_content %}
+
+<section>
+    <div class="container principal">
+        <div class="card px-5">
+            <div class="card-body fondo p-5">
+                <h1 class="text-center">Articulos</h1>
+                <hr>
+            </br>
+        </br>
+    </br>
+                {% for a in articulos %}
+                            <article class="border  border-black p-2 mb-2 border-opacity-25 mb-5">
+                                <h1 class="card-title text-center border-bottom border-danger">
+                                    {{a.titulo}}
+                                </h1>
+                                <p class="detalle-articulo text-center">
+                                    Autor:{{a.autor}} | Fecha creación:{{a.creacion|date:"d-m-Y"}} 
+                                </p>
+                                <p class="articulo-index">
+                                    {{a.html_body|safe}}
+                                </p>
+                            </article>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

@@ -6,7 +6,6 @@
 {% block agregar%}active{% endblock%}
 {% block first_content %}
 
-<h1>Nuevo Articulo</h1>
 <section>
     <div class="container principal">
         <div class="card px-5">
@@ -16,11 +15,14 @@
                     <form data-bs-theme="light" action="" method="post" enctype="multipart/form-data" id="articulonuevo">
                         {% csrf_token %}
                         <div class="form-group elem mb-3 ">
-                            <label for="nombre" class="form-label">Nombre</label>
+                            <label for="nombre" class="form-label">Título</label>
                             {{form.titulo}}
                             <!-- <input type="text"  onblur="validarNombre()" class="form-control" name="nombre" id="nombre"> -->
                         </div>
-                        
+                        <div class="form-group elem mb-3 ">
+                            <label for="nombre" class="form-label">Autor</label>
+                            {{form.autor}}
+                        </div>
                         <div class="form-group elem mb-3">
                             <label for="id_html_body" class="form-label">Cuerpo del artículo</label>
                             <div class="herramientas">

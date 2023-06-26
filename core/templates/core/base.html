@@ -31,15 +31,8 @@
                     <li class="nav-item">
                         <a class="nav-link {% block home %}{% endblock %}" aria-current="page" href="{% url 'home' %}">Inicio</a>
                     </li>
-                    <li class="nav-item dropdown" data-bs-theme="light">
-                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
-                            aria-expanded="false">
-                            Leaks
-                        </a>
-                        <ul class="dropdown-menu fondo-nav">
-                            <li><a class="dropdown-item" href="LeaksNintendo.html">Nintendo</a></li>
-                            <li><a class="dropdown-item" href="LeaksSony.html">Sony</a></li>
-                        </ul>
+                    <li class="nav-item">
+                        <a class="nav-link {% block articles %}{% endblock %} " href="{% url 'articles' %}">Artículos</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link {% block contact %}{% endblock %} " href="{% url 'contact' %}">Contactanos</a>
@@ -71,25 +64,26 @@
                         <hr>
                         <ul>
                             <li><a class="mapa" href="{% url 'home' %}">Inicio</a></li>
-                            <li><a class="mapa" href="">Leaks de Nintendo - WIP</a></li>
-                            <li><a class="mapa" href="">Leaks de Sony - WIP</a></li>
-                            <li><a class="mapa" href="">Contáctanos - WIP</a></li>
-                            <li><a class="mapa" href="">Sobre Nosotros - WIP</a></li>
+                            <li><a class="mapa" href="{% url 'articles' %}">Articulos</a></li>
+                            <li><a class="mapa" href="{% url 'contact' %}">Contáctanos</a></li>
+                            <li><a class="mapa" href="{% url 'about' %}">Sobre Nosotros</a></li>
                         </ul>
+
+                        
                 </div>
                 
                 <div class="col-md-4">
                     <h4>Contáctanos</h4>
                     <hr>
                     <div>
-                        <a href="contactanos.html">
+                        <a href="{% url 'contact' %}">
                             <button type="button" class="btn btn-warning" id="kanye">Contáctanos</button>
                         </a>
                     </div>
                     <br>
                     <h4>Acceso Staff</h4>
                     <hr>
-                    <a href="admin.html">
+                    <a href="{% url 'lista-articulos' %}">
                         <button type="button" class="btn btn-warning" id="btnAdmin">
                             <span class="material-symbols-outlined">key</span>Acceso Admin
                         </button>

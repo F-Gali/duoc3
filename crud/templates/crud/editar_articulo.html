@@ -5,36 +5,68 @@
 {% load static %}
 
 {% block first_content %}
-<div class="container principal fondo"> 
-    <div class="container my-2 p-5 text-white bg-dark text-center rounded">
-        <h1>Editar Articulo </h1>
-    </div>
-
-    <form action="" method="post" enctype="multipart/form-data"> 
+<section>
+    
+<div class="container principal"> 
+    <div class="card px-5">
+        <div class="card-body fondo p-5">
+            <h1 class="p-5 text-center">Editar Artículo</h1>
+                <article>
+    <form data-bs-theme="light" action="" method="post" enctype="multipart/form-data"> 
         {% csrf_token %}
         
-        <div class="form-group mb-3">
-            <label for="title" class="fw-bold">Título</label>
-            <div class="input-group">
-                {{form.titulo}}
-            </div>
+        <div class="form-group elem mb-3 ">
+            <label for="titulo" class="form-label">Título</label>
+            {{form.titulo}}
         </div>
-        <div class="form-group mb-3">
-            <label for="cuerpoArticulo" class="fw-bold">Cuerpo del articulo</label>
-            <div class="input-group">
-                {{form.html_body}}
+        <div class="form-group elem mb-3 ">
+            <label for="autor" class="form-label">Autor</label>
+            {{form.autor}}
+        </div>
+        <div class="form-group elem mb-3">
+            <label for="cuerpoArticulo" class="form-label">Cuerpo del articulo</label>
+            <div class="herramientas">
+                <button type="button" class="" onclick="formato('bold')">
+                    <span class="material-symbols-outlined icono">format_bold</span>
+                </button>
+                <button type="button" class="" onclick="formato('italic')">
+                    <span class="material-symbols-outlined icono">format_italic</span>
+                </button>
+                <button type="button" class="" onclick="formato('underline')">
+                    <span class="material-symbols-outlined icono">format_underlined</span>
+                </button>
+                <button type="button" class="" onclick="formato('strikeThrough')">
+                    <span class="material-symbols-outlined icono">format_strikethrough</span>
+                </button>
+                <button type="button" class="" onclick="formato('lorem')">
+                    <label>Lorem</label>
+                </button>
+                <button type="button" class="fright">
+                    <span class="material-symbols-outlined icono">code</span>
+                    <label>HTML</label>
+                </button>
             </div>
+                <div id="areaedit" contenteditable="true" id="test">
+                    {{form.html_body}}
+                </div>
+                
         </div> 
-        <div class="form-group mb-3">
-            <label for="compania" class="fw-bold">Compañia</label>
-            <div class="input-group">
+        <div class="form-group elem mb-3">
+            <label for="compania" class="form-label">Compañia</label>
+           
                 {{form.id_compania}}
-            </div>
+            
         </div> 
-        <div class="text-center my-4">
+        <div class="form-group elem mb-3 col-12 controles">
             <input type="submit" class="btn btn-primary" id="actualizar" value="Actualizar">
             <a class="btn btn-success" href="{% url 'lista-articulos' %}">Volver</a>
         </div>  
     </form>
+</article>
 </div>
+</div>
+</div>
+
+</section>
+<script src="{% static 'crud/js/editor.js' %}"></script>
 {% endblock %}

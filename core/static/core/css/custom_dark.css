@@ -417,3 +417,9 @@ nav .nav-link.active{ color: white !important; font-weight: bolder;}
 .card-button{
   cursor: pointer;
 }
+.btn-crud{
+  
+  background: transparent;
+  border: none !important;
+  font-size:0;
+}

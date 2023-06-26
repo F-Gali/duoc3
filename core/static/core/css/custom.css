@@ -379,3 +379,10 @@ body {
   
   transform: scale(1.05);
 }
+
+.btn-crud{
+  
+  background: transparent;
+  border: none !important;
+  font-size:0;
+}

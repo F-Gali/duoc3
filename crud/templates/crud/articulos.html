@@ -5,21 +5,18 @@
 {% load static %}
 {% block lista %}active{% endblock %}
 {% block first_content %}
-
-<div class="container principal fondo"> 
-    <div class="container my-2 p-5 text-white bg-dark text-center rounded">
-        <h1>Listado Articulos </h1>
-    </div>
-
-
-    <div class="container my-2">
+<section>
+<div class="container principal "> 
+    <div class="card px-5 ">
+        <div class="card-body fondo p-5">
+    <h1 class="p-5 text-center">Listado Artículos</h1>
         <div class="table-responsive">
             <table class="table table-hover">
                 <thead class="table-dark">
                     <tr>
                         <th>ID</th>
                         <th>Título</th>
-                        <th>Contenido</th>
+                        <th>Autor</th>
                         <th>Compañia</th>
                         <th>Fecha creación</th>
                         <th>Fecha última actualización</th>
@@ -32,13 +29,13 @@
                         <td class="articulo-index texto-fila ">{{a.id}}</td>
                         <td class="articulo-index texto-fila">{{a.titulo}}</td>
                         <td class="articulo-index texto-fila">
-                            {{a.html_body|slice:"0:15" }}
+                            {{a.autor }}
                         </td>
                         <td class="articulo-index texto-fila">
                             {{a.id_compania}}
                         </td>
-                        <td class="articulo-index texto-fila">{{a.creacion}}</td>
-                        <td class="articulo-index texto-fila">{{a.actualizacion}}</td>
+                        <td class="articulo-index texto-fila">{{a.creacion|date:"D d M Y"}}</td>
+                        <td class="articulo-index texto-fila">{{a.actualizacion|date:"D d M Y"}}</td>
                         <td>
                             {% comment %}                             
                             <a class="btn btn-outline-primary" href="/crud/videogames/detail/{{v.idVideogame}}">
@@ -47,9 +44,16 @@
                                 </span>
                             </a>                        
                             {% endcomment %}
-                            <a class="btn btn-outline-warning" href="{% url 'editar-articulo' idArticulo=a.id %}">
-                                <span class="text-warning">
-                                    <i>Editar</i>
+                            
+                            <a class="btn btn-warning" href="{% url 'editar-articulo' idArticulo=a.id %}">
+                                <span class="material-symbols-outlined">
+                                    edit
+                                </span>
+                            </a>
+
+                            <a class="btn btn-danger modal-borrar" data-bs-toggle="modal" data-bs-target="#staticBackdrop" data-href="{% url 'eliminar-articulo' idArticulo=a.id %}">
+                                <span class="material-symbols-outlined">
+                                    delete
                                 </span>
                             </a>
                             {% comment %}  
@@ -63,7 +67,39 @@
                     {% endfor %}
                 </tbody>
             </table>
+      
         </div>
     </div>
+    </div>
 </div>
+
+</section>
+<!-- Modal -->
+<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="staticBackdropLabel">Alerta</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <h6 class="modal-title">Borrar el artículo seleccionado?<br>Esta acción no se puede deshacer.</h6>
+            </div>
+            <div class="modal-footer text-center">
+                <a class="btn btn-primary" id="confirmar-borrar" href="#">Borrar</a>
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Volver</button>
+                
+            </div>
+        </div>
+    </div>
+</div>  
+{% block extra_js %}
+<script>
+    $('.modal-borrar').on('click',function(){
+        const href = $(this).attr('data-href');
+        $('#confirmar-borrar').attr('href',href);
+    });
+</script>
+{% endblock %}
+
 {% endblock %}

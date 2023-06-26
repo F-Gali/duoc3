@@ -5,9 +5,12 @@ from django.utils.timezone import datetime
 class Compania(models.Model):
     nombre = models.CharField(max_length=64)
     creacion = models.DateTimeField(verbose_name='Fecha Registro', auto_now_add=True)
+    def __str__(self):
+        return str(self.nombre)
 
 class Articulo(models.Model):
     titulo = models.CharField(max_length=255)
+    autor = models.CharField(max_length=255,default='Anonimo')
     html_body = models.CharField(max_length=4096)
     id_compania = models.ForeignKey(Compania, on_delete=models.CASCADE)
     creacion = models.DateTimeField(verbose_name='Fecha Registro', auto_now_add=True)

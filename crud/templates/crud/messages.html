@@ -1,0 +1,37 @@
+{% extends 'crud/base.html' %}
+
+{% block title %}Mensajes{% endblock %}
+{% block messages %}active{% endblock %}
+{% load static %}
+
+{% block first_content %}
+
+<section>
+    <div class="container principal">
+        <div class="card px-5">
+            <div class="card-body fondo p-5">
+            </br>
+        </br>
+    </br>
+                <h1 class="text-center">Mensajes</h1>
+                <hr>
+            </br>
+        </br>
+    </br>
+                {% for m in mensajes %}
+                            <article class="border  border-black p-2 mb-2 border-opacity-25 mb-5">
+                              
+                                <p class="detalle-articulo text-center">
+                                    Autor:{{m.nombre}} {{m.apellido}} | Rut: {{m.rut}} | Email: {{m.email}} | Fecha creación:{{m.creacion|date:"d-m-Y"}} 
+                                </p>
+                                <p class="articulo-index">
+                                    {{m.mensaje}}
+                                </p>
+                            </article>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

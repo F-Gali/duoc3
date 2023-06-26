@@ -12,7 +12,7 @@ def listado_articulos(request):
     return render(request,'crud/articulos.html',context)
 
 def crear_articulo(request):
-    form = ArticuloForm();
+    form = ArticuloForm()
     context = { 'form' : form }
     if request.method == 'POST':
         form = ArticuloForm(request.POST, request.FILES)
@@ -22,6 +22,14 @@ def crear_articulo(request):
         else:
             return redirect(request.path + '?error')
     return render(request,'crud/nuevo_articulo.html', context)
+
+def eliminar_articulo(request,idArticulo):
+        try:
+            articulo = Articulo.objects.get(id = idArticulo)
+            articulo.delete()
+            return redirect(reverse('lista-articulos') + '?exito')
+        except:
+            return redirect(reverse('lista-articulos') + '?error')
 
 def editar_articulo(request,idArticulo):
     try:
@@ -39,3 +47,10 @@ def editar_articulo(request,idArticulo):
         return render(request,'crud/editar_articulo.html',context)
     except:
         return render(request,'crud/editar_articulo.html' + '?NO_EXIST')
+
+def mensajes(request):
+    context = {'mensajes':Mensaje.objects.all()}
+    return render(request,'crud/messages.html',context)
+
+    
+    

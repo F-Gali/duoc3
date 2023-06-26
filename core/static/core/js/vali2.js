@@ -280,5 +280,10 @@ function validarT(){
     $("form").html("<h6>Tu mensaje se ha enviado con éxito.</h6>")
 }
 
-
+function validarMensaje(){
+    if(!validarNombre()) return;
+    if(!validarApellido()) return;
+    if(!validarEmail()) return;
+    document.getElementById("mensajenuevo").submit();
+}
 

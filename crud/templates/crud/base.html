@@ -41,6 +41,9 @@
                         <a class="nav-link {% block agregar %}{% endblock %}" href="{% url 'crear-articulo' %}">Nuevo Articulo</a>
                     </li>
                     <li>
+                        <a class="nav-link {% block messages %}{% endblock %}" href="{% url 'mensajes' %}">Mensajes</a>
+                    </li>
+                    <li>
                         <a class="nav-link" href="{% url 'admin:index' %}">Admin</a>
                     </li>
                 </ul>
@@ -67,25 +70,26 @@
                         <hr>
                         <ul>
                             <li><a class="mapa" href="{% url 'home' %}">Inicio</a></li>
-                            <li><a class="mapa" href="">Leaks de Nintendo - WIP</a></li>
-                            <li><a class="mapa" href="">Leaks de Sony - WIP</a></li>
-                            <li><a class="mapa" href="">Contáctanos - WIP</a></li>
-                            <li><a class="mapa" href="">Sobre Nosotros - WIP</a></li>
+                            <li><a class="mapa" href="{% url 'articles' %}">Articulos</a></li>
+                            <li><a class="mapa" href="{% url 'contact' %}">Contáctanos</a></li>
+                            <li><a class="mapa" href="{% url 'about' %}">Sobre Nosotros</a></li>
                         </ul>
+
+                        
                 </div>
                 
                 <div class="col-md-4">
                     <h4>Contáctanos</h4>
                     <hr>
                     <div>
-                        <a href="contactanos.html">
+                        <a href="{% url 'contact' %}">
                             <button type="button" class="btn btn-warning" id="kanye">Contáctanos</button>
                         </a>
                     </div>
                     <br>
                     <h4>Acceso Staff</h4>
                     <hr>
-                    <a href="admin.html">
+                    <a href="{% url 'lista-articulos' %}">
                         <button type="button" class="btn btn-warning" id="btnAdmin">
                             <span class="material-symbols-outlined">key</span>Acceso Admin
                         </button>
@@ -98,8 +102,11 @@
             </div>
         </div>
     </footer>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
     <script src="{% static 'crud/js/util.js'%}"></script>
     <script src="{% static 'crud/js/vali2.js'%}"></script>
+    {% block block_js  %} {% endblock %}
 </body>
 </html>
