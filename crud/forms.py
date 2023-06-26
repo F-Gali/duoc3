@@ -28,7 +28,20 @@ class ArticuloForm(ModelForm):
         }
 
 class CompaniaForm(ModelForm):
-    pass
+    class Meta:
+        model = Compania
+        fields = [
+            'id',
+            'nombre'
+        ]
+        labels = {
+            'id':'ID',
+            'nombre':'Nombre'
+        }
+        widgets = {
+            'id':forms.TextInput(attrs={'class':'form-control'}),
+            'nombre':forms.TextInput(attrs={'class':'form-control'})
+        }
 
 class MensajeForm(ModelForm):
     class Meta:

@@ -1,0 +1,82 @@
+{% extends 'crud/base.html' %}
+
+{% block title %}Compañias{% endblock %}
+{% load static %}
+{% block compania %}active{% endblock %}
+
+{% block first_content %}
+
+<section>
+    <div class="container principal "> 
+        <div class="card px-5 ">
+            <div class="card-body fondo p-5">
+        <h1 class="p-5 text-center">Listado Compañias</h1>
+        <div class="table-responsive">
+            <table class="table table-hover">
+                <thead class="table-dark">
+                    <tr>
+                        <th>Nombre</th>
+                        <th>Creacion</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for c in companias %}
+                    <tr>
+                        <td class="articulo-index texto-fila ">{{c.nombre}}</td>
+                        <td class="articulo-index texto-fila">{{c.creacion}}</td>
+                        </td>
+                        <!-- Modal <td class="articulo-index texto-fila">{{c.creacion|date:"D d M Y"}}</td> -->
+                        <td>
+
+                            <a class="btn btn-warning" href="{% url 'editar-compania' idCompania=c.id %}">
+                                <span class="material-symbols-outlined">
+                                    edit
+                                </span>
+                            </a>
+
+                            <a class="btn btn-danger modal-borrar" data-bs-toggle="modal" data-bs-target="#staticBackdrop" data-href="{% url 'eliminar-compania' idCompania=c.id %}">
+                                <span class="material-symbols-outlined">
+                                    delete
+                                </span>
+                            </a>
+                        
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+    </div>
+</div>
+
+<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="staticBackdropLabel">Alerta</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <h6 class="modal-title">Borrar la compania seleccionada?<br>Esta acción no se puede deshacer.</h6>
+            </div>
+            <div class="modal-footer text-center">
+                <a class="btn btn-primary" id="confirmar-borrar" href="#">Borrar</a>
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Volver</button>
+                
+            </div>
+        </div>
+    </div>
+</div>
+
+{% block extra_js %}
+<script>
+    $('.modal-borrar').on('click',function(){
+        const href = $(this).attr('data-href');
+        $('#confirmar-borrar').attr('href',href);
+    });
+</script>
+{% endblock %}
+
+{% endblock %}
