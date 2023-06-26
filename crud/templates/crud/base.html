@@ -52,7 +52,7 @@
                         </a>
                         <ul class="dropdown-menu fondo-nav">
                             <li><a class="nav-link {% block agregar %}{% endblock %}" href="{% url 'crear-articulo' %}">Nuevo Articulo</a></li>
-                            <li><a class="nav-link " href="">Nueva Compañia</a></li>
+                            <li><a class="nav-link {% block agregarC %}{% endblock %} " href="{% url 'crear-compania' %}">Nueva Compañia</a></li>
                         </ul>
                     </li>
                     <li>

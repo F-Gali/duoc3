@@ -18,3 +18,7 @@ function validarEditior(){
     document.getElementById("id_html_body").value = document.getElementById("areaedit").innerHTML;
     document.getElementById("articulonuevo").submit();
 }
+
+function validarEditiorC(){
+    document.getElementById("companianueva").submit();
+}
