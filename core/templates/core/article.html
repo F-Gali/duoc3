@@ -10,16 +10,26 @@
     <div class="container principal">
         <div class="card px-5">
             <div class="card-body fondo p-5">
-                <h1 class="text-center">{{articulo.titulo}}</h1>
-                <p class="detalle-articulo text-center">
-                    Autor:{{articulo.autor}} | Fecha creación:{{articulo.creacion|date:"d-m-Y"}} 
-                </p>
+                {% if articulo.headerImage %}
+                    <div class="text-center header-img rounded" style="background-image:url('{{articulo.headerImage.url}}')">
+                        {% comment %} <img src="{{articulo.headerImage.url}}" class="img-fluid" alt="Responsive image"> {% endcomment %}
+                        <h1 class="text-center">{{articulo.titulo}}</h1>
+                        <p class="detalle-articulo text-center">
+                            Autor:{{articulo.autor}} | Fecha creación:{{articulo.creacion|date:"d-m-Y"}} 
+                        </p>
+                    </div>
+                {% else %}
+                    <h1 class="text-center">{{articulo.titulo}}</h1>
+                    <p class="detalle-articulo text-center">
+                        Autor:{{articulo.autor}} | Fecha creación:{{articulo.creacion|date:"d-m-Y"}} 
+                    </p>
                 <hr>
-                </br>
+                {% endif %}
                 </br>
                 <p class="articulo-index">
-                    {{articulo.html_body|safe}}
-                </p>  
+                    {{html_body2|safe}}
+                    
+                </p>
             </div>
         </div>
     </div>
@@ -51,20 +61,6 @@
                 {{form.autor}}
             </div>
             <label for="id_mensaje" class="form-label">Comentario</label>
-            <div class="herramientas">
-                <button type="button" class="" onclick="formato('bold')">
-                    <span class="material-symbols-outlined icono">format_bold</span>
-                </button>
-                <button type="button" class="" onclick="formato('italic')">
-                    <span class="material-symbols-outlined icono">format_italic</span>
-                </button>
-                <button type="button" class="" onclick="formato('underline')">
-                    <span class="material-symbols-outlined icono">format_underlined</span>
-                </button>
-                <button type="button" class="" onclick="formato('strikeThrough')">
-                    <span class="material-symbols-outlined icono">format_strikethrough</span>
-                </button>
-            </div>
             <div id="areaedit" contenteditable="true" id="test"></div>
             <textarea name="mensaje" cols="40" rows="10" class="form-control" maxlength="4096" 
                 required="" id="id_mensaje" style="display: none;"></textarea>

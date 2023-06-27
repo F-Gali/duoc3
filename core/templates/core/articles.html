@@ -10,7 +10,7 @@
     <div class="container principal">
         <div class="card px-5">
             <div class="card-body fondo p-5">
-                <h1 class="text-center">Articulos</h1>
+                <h1 class="text-center">Artículos</h1>
                 <hr>
             </br>
         </br>
@@ -20,8 +20,11 @@
                                 <h1 class="card-title text-center border-bottom border-danger">
                                     {{a.titulo}}
                                 </h1>
+                                {% if a.headerImage %}
+                                <img src="{{a.headerImage.url}}" class="card-img-top p-3" alt="{{a.titulo}}">
+                                {% endif %}
                                 <p class="detalle-articulo text-center">
-                                    Autor:{{a.autor}} | Fecha creación:{{a.creacion|date:"d-m-Y"}} 
+                                    Autor:{{a.autor}} | Fecha creación:{{a.creacion|date:"d-m-Y"}} | Tags: <a href="{% url 'articles-company' compania=a.id_compania_id %}">{{a.id_compania}}</a>
                                 </p>
                                 <p class="articulo-index">
                                     {{a.html_body|safe|slice:"0:320"}}...<a href="{% url 'article-complete' id_articulo=a.id %}">Ver más</a>

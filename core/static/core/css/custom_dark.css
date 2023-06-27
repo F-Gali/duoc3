@@ -475,3 +475,40 @@ nav .nav-link.active{ color: white !important; font-weight: bolder;}
 article .controles *{
   float: right;
 }
+
+.article-img{
+  max-width: 450px;
+  float:right;
+  margin: 16px 0 16px 16px;
+}
+
+.header-img{
+  padding: 40px 0px;
+  position: relative;
+  float: center;
+  background-size: cover;
+}
+
+.header-img::before{
+  content: "";
+  background-size: cover;
+  position: absolute;
+  inset: 0 0 0 0;
+  background: -moz-linear-gradient(0deg, rgba(0,0,0,0.856) 0%, rgba(0,0,0,0) 100%);
+  background: -webkit-linear-gradient(0deg, rgba(0,0,0,0.856) 0%, rgba(0,0,0,0) 100%);
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0.856) 0%, rgba(0,0,0,0) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#000000",endColorstr="#000000",GradientType=1);
+}
+
+.header-img *{
+  position: relative;
+  z-index: 1;
+}
+
+.header-img h1{
+  color: whitesmoke;
+}
+
+.header-img p{
+  color: whitesmoke;
+}

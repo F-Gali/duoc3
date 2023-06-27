@@ -56,6 +56,29 @@
                 {{form.id_compania}}
             
         </div> 
+        <div class="form-group mb-3">
+            <label for="image" class="fw-bold">Imagen Cabecera</label>
+            <div class="input-group">
+                {{form.headerImage}}
+            </div>
+            {% if form.instance.headerImage %}
+                <div class="row my-2">
+                    <img class="img-update" src="{{form.instance.headerImage.url}}" alt="{{form.instance.title}}">
+                </div>
+            {% endif %}
+        </div>
+        <div class="form-group mb-3">
+            <label for="image" class="fw-bold">Imagen Articulo</label>
+            <div class="input-group">
+                {{form.articleImage}}
+            </div>
+            {% if form.instance.articleImage %}
+                <div class="row my-2">
+                    <img class="img-update" src="{{form.instance.articleImage.url}}" alt="{{form.instance.title}}">
+                </div>
+            {% endif %}
+        </div>
+
         <div class="form-group elem mb-3 col-12 controles">
             <input type="submit" class="btn btn-primary" id="actualizar" value="Actualizar">
             <a class="btn btn-success" href="{% url 'lista-articulos' %}">Volver</a>

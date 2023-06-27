@@ -32,7 +32,7 @@ class CompaniaAdmin(admin.ModelAdmin):
 
 class ArticuloAdmin(admin.ModelAdmin):
     readonly_fields = ('id','creacion','actualizacion')
-    list_display = ('id', 'titulo', 'id_compania')
+    list_display = ('id', 'titulo', 'id_compania','headerImage')
     ordering = ('id',)
 
 class MensajeAdmin(admin.ModelAdmin):

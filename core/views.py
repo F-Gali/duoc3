@@ -37,9 +37,16 @@ def articles_by_company(request,compania):
 def articulo_completo(request,id_articulo):
     try:
         articulo = Articulo.objects.get(id=id_articulo)
+        
         if articulo:
             form = ComentarioForm()
-            context = {'articulo': articulo ,'comentario' : Comentario.objects.filter(id_articulo=id_articulo),'cantidadComentarios':Comentario.objects.filter(id_articulo=id_articulo).count(),'form':form}
+            
+            context = {'articulo': articulo ,
+                       'comentario' : Comentario.objects.filter(id_articulo=id_articulo),
+                       'cantidadComentarios':Comentario.objects.filter(id_articulo=id_articulo).count(),
+                       'form':form,
+                       'html_body2' : articulo.html_body.replace('&imagenSecundaria&',f'<img src="{articulo.articleImage.url}" class="img-fluid article-img" alt="Responsive image">' if articulo.articleImage else 'imagenNoDefinida')}
+            
             if request.method == 'POST':
                 form = ComentarioForm(request.POST, request.FILES)
                 if form.is_valid():
