@@ -280,5 +280,23 @@ function validarT(){
     $("form").html("<h6>Tu mensaje se ha enviado con éxito.</h6>")
 }
 
+function validarTitulo(){
+    let apellido = $("#apellido")[0].value;
+    $("#error_apellido_invalido")[0].style.display = "none";
+    $("#error_apellido_min")[0].style.display = "none";
+    $("#error_apellido_max")[0].style.display = "none";
+    $("#apellido")[0].classList.remove("is-invalid");
+    $("#apellido")[0].classList.add("is-valid");
+    let rgApellido = /^[a-zA-Z]+$/;
+    if (apellido.trim().length == 0){
+        $("#error_apellido_invalido")[0].style.display = "none";
+        $("#error_apellido_min")[0].style.display = "inline";
+        $("#error_apellido_max")[0].style.display = "none";
+        $("#apellido")[0].classList.add("is-invalid");
+        return false;
+    }
+
+
+}
 
 
