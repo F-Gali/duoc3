@@ -15,13 +15,20 @@
                     <form data-bs-theme="light" action="" method="post" enctype="multipart/form-data" id="articulonuevo">
                         {% csrf_token %}
                         <div class="form-group elem mb-3 ">
-                            <label for="nombre" class="form-label">Título</label>
+                            <label for="titulo" class="form-label">Título</label>
                             {{form.titulo}}
+                            <small id="error_titulo_min" class="text-danger closeted">Debes ingresar tu titulo</small>
+                            <small id="error_titulo_max" class="text-danger closeted">El titulo excede el largo máximo permitido</small>
+                            <small id="error_titulo_invalido" class="text-danger closeted">El titulo es invalido</small>
                             <!-- <input type="text"  onblur="validarNombre()" class="form-control" name="nombre" id="nombre"> -->
                         </div>
                         <div class="form-group elem mb-3 ">
-                            <label for="nombre" class="form-label">Autor</label>
+                            <label for="autor" class="form-label">Autor</label>
                             {{form.autor}}
+                            <small id="error_autor_min" class="text-danger closeted">Debes ingresar tu Autor</small>
+                            <small id="error_autor_max" class="text-danger closeted">El autor excede el largo máximo permitido</small>
+                            <small id="error_autor_invalido" class="text-danger closeted">El autor es invalido</small>
+
                         </div>
                         <div class="form-group elem mb-3">
                             <label for="id_html_body" class="form-label">Cuerpo del artículo</label>

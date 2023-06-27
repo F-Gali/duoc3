@@ -17,6 +17,9 @@
                         <div class="form-group elem mb-3 ">
                             <label for="nombre" class="form-label">Nombre</label>
                             {{form.nombre}}
+                            <small id="error_nombre_min" class="text-danger" >Debes ingresar un nombre</small>
+                            <small id="error_nombre_max" class="text-danger">El nombre excede el largo máximo permitido</small>
+                            <small id="error_nombre_invalido" class="text-danger">El nombre es invalido</small>
                         <!--FIX HERE -->
                             <!--<input type="text"  onblur="validarNombre()" class="form-control" name="nombre" id="nombre">-->
                         </div>

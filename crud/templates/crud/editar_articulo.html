@@ -18,10 +18,16 @@
         <div class="form-group elem mb-3 ">
             <label for="titulo" class="form-label">Título</label>
             {{form.titulo}}
+            <small id="error_titulo_min" class="text-danger">Debes ingresar tu titulo</small>
+            <small id="error_titulo_max" class="text-danger">El titulo excede el largo máximo permitido</small>
+            <small id="error_titulo_invalido" class="text-danger">El titulo es invalido</small>
         </div>
         <div class="form-group elem mb-3 ">
             <label for="autor" class="form-label">Autor</label>
             {{form.autor}}
+            <small id="error_autor_min" class="text-danger">Debes ingresar tu Autor</small>
+            <small id="error_autor_max" class="text-danger">El autor excede el largo máximo permitido</small>
+            <small id="error_autor_invalido" class="text-danger">El autor es invalido</small>
         </div>
         <div class="form-group elem mb-3">
             <label for="cuerpoArticulo" class="form-label">Cuerpo del articulo</label>

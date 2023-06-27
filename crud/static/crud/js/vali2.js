@@ -1,3 +1,10 @@
+$(document).ready(()=>{
+    let errores = Array.from(document.getElementsByClassName("closeted"));
+    errores.forEach((elemento)=>{
+        elemento.style.display = "none";
+    })
+})
+
 // $("#error_rut")[0].style.display="none";
 // $("#error_rut_min")[0].style.display="none";
 $("#error_nombre_min")[0].style.display="none";
@@ -281,22 +288,67 @@ function validarT(){
 }
 
 function validarTitulo(){
-    let apellido = $("#apellido")[0].value;
-    $("#error_apellido_invalido")[0].style.display = "none";
-    $("#error_apellido_min")[0].style.display = "none";
-    $("#error_apellido_max")[0].style.display = "none";
-    $("#apellido")[0].classList.remove("is-invalid");
-    $("#apellido")[0].classList.add("is-valid");
-    let rgApellido = /^[a-zA-Z]+$/;
-    if (apellido.trim().length == 0){
-        $("#error_apellido_invalido")[0].style.display = "none";
-        $("#error_apellido_min")[0].style.display = "inline";
-        $("#error_apellido_max")[0].style.display = "none";
-        $("#apellido")[0].classList.add("is-invalid");
+    let titulo = $("#titulo")[0].value;
+    $("#error_titulo_invalido")[0].style.display = "none";
+    $("#error_titulo_min")[0].style.display = "none";
+    $("#error_titulo_max")[0].style.display = "none";
+    $("#titulo")[0].classList.remove("is-invalid");
+    $("#titulo")[0].classList.add("is-valid");
+    let rgTitulo = /^([a-zA-Z0-9_-]){1,16}$/;
+    if (titulo.trim().length == 0){
+        $("#error_titulo_invalido")[0].style.display = "none";
+        $("#error_titulo_min")[0].style.display = "inline";
+        $("#error_titulo_max")[0].style.display = "none";
+        $("#titulo")[0].classList.add("is-invalid");
         return false;
     }
+    if (rgTitulo.test(titulo) == false){
+        $("#error_titulo_invalido")[0].style.display = "inline";
+        $("#error_titulo_min")[0].style.display = "none";
+        $("#error_titulo_max")[0].style.display = "none";
+        $("#titulo")[0].classList.add("is-invalid");
+        return false;
+    }
+    if(titulo.trim().length > 30){
+        $("#error_titulo_invalido")[0].style.display = "none";
+        $("#error_titulo_max")[0].style.display = "inline";
+        $("#error_titulo_min")[0].style.display = "none";
+        $("#titulo")[0].classList.add("is-invalid");
+        return false;
+    }
+    return true;
+}
 
-
+function validarAutor(){
+    let autor = $("#autor")[0].value;
+    $("#error_autor_invalido")[0].style.display = "none";
+    $("#error_autor_min")[0].style.display = "none";
+    $("#error_autor_max")[0].style.display = "none";
+    $("#autor")[0].classList.remove("is-invalid");
+    $("#autor")[0].classList.add("is-valid");
+    let rgAutor = /^([a-zA-Z0-9_-]){1,16}$/;
+    if (autor.trim().length == 0){
+        $("#error_autor_invalido")[0].style.display = "none";
+        $("#error_autor_min")[0].style.display = "inline";
+        $("#error_autor_max")[0].style.display = "none";
+        $("#autor")[0].classList.add("is-invalid");
+        return false;
+    }
+    if (rgAutor.test(autor) == false){
+        $("#error_autor_invalido")[0].style.display = "inline";
+        $("#error_autor_min")[0].style.display = "none";
+        $("#error_autor_max")[0].style.display = "none";
+        $("#autor")[0].classList.add("is-invalid");
+        return false;
+    }
+    if(autor.trim().length > 30){
+        $("#error_autor_invalido")[0].style.display = "none";
+        $("#error_autor_max")[0].style.display = "inline";
+        $("#error_autor_min")[0].style.display = "none";
+        $("#autor")[0].classList.add("is-invalid");
+        return false;
+    }
+    return true;
 }
 
 

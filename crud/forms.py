@@ -25,8 +25,8 @@ class ArticuloForm(ModelForm):
         }
         widgets = {
             'id':forms.TextInput(attrs={'class':'form-control'}),
-            'autor':forms.TextInput(attrs={'class':'form-control'}),
-            'titulo':forms.TextInput(attrs={'class':'form-control'}),
+            'autor':forms.TextInput(attrs={'class':'form-control','onBlur': 'validarAutor()','name':'autor','id':'autor'}),
+            'titulo':forms.TextInput(attrs={'class':'form-control','onBlur': 'validarTitulo()','name':'titulo','id':'titulo'}),
             'html_body':forms.Textarea(attrs={'class':'form-control'}),
             'id_compania':forms.Select(attrs={'class':'form-control'}),
             'headerImage':forms.FileInput(attrs={'class':'form-control'}),
@@ -46,7 +46,7 @@ class CompaniaForm(ModelForm):
         }
         widgets = {
             'id':forms.TextInput(attrs={'class':'form-control'}),
-            'nombre':forms.TextInput(attrs={'class':'form-control'})
+            'nombre':forms.TextInput(attrs={'class':'form-control','onBlur': 'validarNombre()','name':'nombre','id':'nombre'})
         }
 
 class MensajeForm(ModelForm):
