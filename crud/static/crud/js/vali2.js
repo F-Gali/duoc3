@@ -236,19 +236,20 @@ mensaje.addEventListener('input', function() {
 // }
 
 //Validacion CARRERA
-// function validarCarrera(){
-//     if(carrera == null){
-//         document.getElementById("error_carrera").style.display = "inline";
-//         document.getElementById("carrera").classList.add("is-invalid");
-//         return false;
-//     }
-//     else{
-//         document.getElementById("error_carrera").style.display = "none";
-//         document.getElementById("carrera").classList.remove("is-invalid");
-//         document.getElementById("carrera").classList.add("is-valid");
-//         return true;
-//     }
-// }
+function validarCompania(varCualquiera){
+    let compania = varCualquiera.value;
+    if(compania == 0){
+        document.getElementById("error_compania").style.display = "inline";
+        document.getElementById("compania").classList.add("is-invalid");
+        return false;
+    }
+    else{
+        document.getElementById("error_compania").style.display = "none";
+        document.getElementById("compania").classList.remove("is-invalid");
+        document.getElementById("compania").classList.add("is-valid");
+        return true;
+    }
+}
 
 //Submit
 function validarT(){
@@ -294,7 +295,7 @@ function validarTitulo(){
     $("#error_titulo_max")[0].style.display = "none";
     $("#titulo")[0].classList.remove("is-invalid");
     $("#titulo")[0].classList.add("is-valid");
-    let rgTitulo = /^([a-zA-Z0-9_-]){1,16}$/;
+    let rgTitulo = /^[ A-Za-z0-9_@./#&+-]*$/;
     if (titulo.trim().length == 0){
         $("#error_titulo_invalido")[0].style.display = "none";
         $("#error_titulo_min")[0].style.display = "inline";
@@ -326,7 +327,7 @@ function validarAutor(){
     $("#error_autor_max")[0].style.display = "none";
     $("#autor")[0].classList.remove("is-invalid");
     $("#autor")[0].classList.add("is-valid");
-    let rgAutor = /^([a-zA-Z0-9_-]){1,16}$/;
+    let rgAutor = /^[ A-Za-z0-9_@./#&+-]*$/;
     if (autor.trim().length == 0){
         $("#error_autor_invalido")[0].style.display = "none";
         $("#error_autor_min")[0].style.display = "inline";

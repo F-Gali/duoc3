@@ -28,7 +28,7 @@ class ArticuloForm(ModelForm):
             'autor':forms.TextInput(attrs={'class':'form-control','onBlur': 'validarAutor()','name':'autor','id':'autor'}),
             'titulo':forms.TextInput(attrs={'class':'form-control','onBlur': 'validarTitulo()','name':'titulo','id':'titulo'}),
             'html_body':forms.Textarea(attrs={'class':'form-control'}),
-            'id_compania':forms.Select(attrs={'class':'form-control'}),
+            'id_compania':forms.Select(attrs={'class':'form-control','onBlur': 'validarCompania(this)','name':'compania','id':'compania'}),
             'headerImage':forms.FileInput(attrs={'class':'form-control'}),
             'articleImage':forms.FileInput(attrs={'class':'form-control'})
         }
