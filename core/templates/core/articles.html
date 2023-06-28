@@ -13,6 +13,45 @@
                 <h1 class="text-center">Artículos</h1>
                 <hr>
             </br>
+            {% if request.path|slice:"19:20" == "1" %}
+                <div class="container filtro">
+                    <a class="btn btn-light m-2 filtro" href="{% url 'articles' %}">
+                        Mostrar todos los artículos
+                    </a>
+                    <a class="btn btn-dark m-2 filtro" href="{% url 'articles-company' compania=1 %}">
+                        Mostrar artículos de Nintendo
+                    </a>
+                    <a class="btn btn-light m-2 filtro" href="{% url 'articles-company' compania=2 %}">
+                        Mostrar artículos de Sony
+                    </a>
+                </div>
+            {% elif request.path|slice:"19:20" == "2" %}
+            <div class="container filtro">
+                <a class="btn btn-light m-2 filtro" href="{% url 'articles' %}">
+                    Mostrar todos los artículos
+                </a>
+                <a class="btn btn-light m-2 filtro" href="{% url 'articles-company' compania=1 %}">
+                    Mostrar artículos de Nintendo
+                </a>
+                <a class="btn btn-dark m-2 filtro" href="{% url 'articles-company' compania=2 %}">
+                    Mostrar artículos de Sony
+                </a>
+            </div>
+            {% else %}
+            <div class="container filtro">
+                <a class="btn btn-dark m-2 filtro" href="{% url 'articles' %}">
+                    Mostrar todos los artículos
+                </a>
+                <a class="btn btn-light m-2 filtro" href="{% url 'articles-company' compania=1 %}">
+                    Mostrar artículos de Nintendo
+                </a>
+                <a class="btn btn-light m-2 filtro" href="{% url 'articles-company' compania=2 %}">
+                    Mostrar artículos de Sony
+                </a>
+            </div>
+            {% endif %} 
+            
+            
         </br>
     </br>
                 {% for a in articulos %}

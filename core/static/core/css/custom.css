@@ -475,3 +475,11 @@ article .controles *{
 .header-img p{
   color: whitesmoke;
 }
+
+.filtro{
+  border-radius: 40px;
+}
+
+div.filtro{
+  background-color: lightgray;
+}
