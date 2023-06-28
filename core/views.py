@@ -21,7 +21,7 @@ def contact(request):
         form = MensajeForm(request.POST, request.FILES)
         if form.is_valid():
             form.save()
-            return redirect(reverse('home') + '?exito')
+            return redirect(request.path + '?exito')
         else:
             return redirect(request.path + '?error')
     return render(request,'core/contact.html',context)

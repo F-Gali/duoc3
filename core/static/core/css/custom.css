@@ -488,3 +488,13 @@ article .controles *{
 div.filtro{
   background-color: lightgray;
 }
+
+.border-article{
+  border-color: black!important;
+  
+  border-radius: 4px;
+}
+
+.test{
+  background-color: whitesmoke;
+}

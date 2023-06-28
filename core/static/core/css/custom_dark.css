@@ -523,3 +523,11 @@ article .controles *{
 div.filtro{
   background-color: lightgray;
 }
+.border-article{
+  border-color: white!important;
+  
+  border-radius: 4px;
+}
+.test{
+  background-color: black;
+}

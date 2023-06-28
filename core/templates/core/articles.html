@@ -55,19 +55,28 @@
         </br>
     </br>
                 {% for a in articulos %}
-                            <article class="border  border-black p-2 mb-2 border-opacity-25 mb-5">
-                                <h1 class="card-title text-center border-bottom border-danger">
-                                    {{a.titulo}}
-                                </h1>
+                            <article class="border border-article p-2 test mb-2 border-opacity-25 mb-5">
                                 {% if a.headerImage %}
-                                <img src="{{a.headerImage.url}}" class="card-img-top p-3" alt="{{a.titulo}}">
+                                    <div class="text-center header-img rounded" style="background-image:url('{{a.headerImage.url}}')">
+                                        {% comment %} <img src="{{articulo.headerImage.url}}" class="img-fluid" alt="Responsive image"> {% endcomment %}
+                                        <h1 class="text-center">{{a.titulo}}</h1>
+                                        <p class="detalle-articulo text-center">
+                                            Autor:{{a.autor}} | Fecha creación:{{a.creacion|date:"d-m-Y"}} 
+                                        </p>
+                                    </div>
+                                {% else %}
+                                    <h1 class="text-center">{{a.titulo}}</h1>
+                                    <p class="detalle-articulo text-center">
+                                        Autor:{{a.autor}} | Fecha creación:{{a.creacion|date:"d-m-Y"}} 
+                                    </p>
+                                <hr>
                                 {% endif %}
-                                <p class="detalle-articulo text-center">
-                                    Autor:{{a.autor}} | Fecha creación:{{a.creacion|date:"d-m-Y"}} | Tags: <a href="{% url 'articles-company' compania=a.id_compania_id %}">{{a.id_compania}}</a>
-                                </p>
-                                <p class="articulo-index">
-                                    {{a.html_body|safe|slice:"0:320"}}...<a href="{% url 'article-complete' id_articulo=a.id %}">Ver más</a>
-                                </p>
+                                
+                                    <p class="articulo-index">
+                                        {{a.html_body|safe|slice:"0:800"}}...<a href="{% url 'article-complete' id_articulo=a.id %}">Ver más</a>
+                                    </p>
+                                
+                                
                             </article>
                 {% endfor %}
             </div>
