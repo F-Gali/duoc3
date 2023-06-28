@@ -74,7 +74,19 @@
                             </div>
                         </div>
                         <div class="form-group elem mb-3 col-12 controles">
-                            <button class="btn btn-primary" type="button" onclick="validarEditior()">Crear Nuevo Artículo</button>
+                            <a class="btn btn-primary m-2" href="{% url 'lista-articulos' %}">
+                                <span class="material-symbols-outlined align-middle">
+                                    undo
+                                </span>
+                                Volver
+                            </a>
+                            <button class="btn btn-primary m-2" type="button" onclick="validarEditior()">
+                                <span class="material-symbols-outlined align-middle">
+                                    add
+                                </span>
+                                Crear Nuevo Artículo
+                            </button>
+                            
                         </div>
                         
                         <div class="elem mb-3"></div>

@@ -497,7 +497,7 @@ article select option{
   color: white;
   background-color: #232323;
 }
-article .controles *{
+article .controles>*{
   float: right;
 }
 

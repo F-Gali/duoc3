@@ -18,7 +18,7 @@ def crear_articulo(request):
         form = ArticuloForm(request.POST, request.FILES)
         if form.is_valid():
             form.save()
-            return redirect(reverse('lista-articulos') + '?exito')
+            return redirect(reverse('lista-articulos') + '?exito-crear-articulo')
         else:
             return redirect(request.path + '?error')
     return render(request,'crud/nuevo_articulo.html', context)
@@ -27,7 +27,7 @@ def eliminar_articulo(request,idArticulo):
         try:
             articulo = Articulo.objects.get(id = idArticulo)
             articulo.delete()
-            return redirect(reverse('lista-articulos') + '?exito')
+            return redirect(reverse('lista-articulos') + '?exito-eliminar-articulo')
         except:
             return redirect(reverse('lista-articulos') + '?error')
 
@@ -39,7 +39,7 @@ def editar_articulo(request,idArticulo):
             form = ArticuloForm(request.POST, request.FILES, instance=articulo)
             if form.is_valid():
                 form.save()
-                return redirect(reverse('lista-articulos') + '?UPDATED')
+                return redirect(request.path + '?exito')
             else:
                 return redirect(reverse('editar-articulo') + idArticulo)
 
@@ -63,7 +63,7 @@ def crear_compania(request):
         form = CompaniaForm(request.POST, request.FILES)
         if form.is_valid():
             form.save()
-            return redirect(reverse('lista-compania') + '?exito')
+            return redirect(reverse('lista-compania') + '?exito-crear-compania')
         else:
             return redirect(request.path + '?error')
     return render(request,'crud/nueva_compania.html', context)
@@ -72,7 +72,7 @@ def eliminar_compania(request,idCompania):
     try:
             compania = Compania.objects.get(id = idCompania)
             compania.delete()
-            return redirect(reverse('lista-compania') + '?exito')
+            return redirect(reverse('lista-compania') + '?exito-eliminar-compania')
     except:
             return redirect(reverse('lista-compania') + '?error')
     
@@ -85,7 +85,7 @@ def editar_compania(request,idCompania):
             form = CompaniaForm(request.POST, request.FILES, instance=compania)
             if form.is_valid():
                 form.save()
-                return redirect(reverse('lista-compania') + '?UPDATED')
+                return redirect(request.path + '?exito')
             else:
                 return redirect(reverse('editar-compania') + idCompania)
 
@@ -102,7 +102,7 @@ def eliminar_comentario(request,idComentario):
     try:
             comentario = Comentario.objects.get(id = idComentario)
             comentario.delete()
-            return redirect(reverse('lista-comentarios') + '?exito')
+            return redirect(reverse('lista-comentarios') + '?exito-eliminar-comentario')
     except:
             return redirect(reverse('lista-comentarios') + '?error')
 
@@ -110,6 +110,6 @@ def eliminar_mensaje(request,idMensaje):
     try:
             mensaje = Mensaje.objects.get(id = idMensaje)
             mensaje.delete()
-            return redirect(reverse('mensajes') + '?exito')
+            return redirect(reverse('mensajes') + '?exito-eliminar-mensaje')
     except:
             return redirect(reverse('mensajes') + '?error')

@@ -11,7 +11,13 @@
     <div class="card px-5">
         <div class="card-body fondo p-5">
             <h1 class="p-5 text-center">Editar Compania</h1>
-                <article>
+            {% if 'exito' in request.GET %}
+                <div class="alert alert-success alert-dismissible fade show" role="alert">
+                    Compañia actualizado con exito.
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+            {% endif %}       
+            <article>
     <form data-bs-theme="light" action="" method="post" enctype="multipart/form-data"> 
         {% csrf_token %}
         

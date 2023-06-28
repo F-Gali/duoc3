@@ -10,6 +10,27 @@
     <div class="card px-5 ">
         <div class="card-body fondo p-5">
     <h1 class="p-5 text-center">Listado Artículos</h1>
+    {% if 'exito-crear-articulo' in request.GET %}
+                <div class="alert alert-success alert-dismissible fade show" role="alert">
+                    Artículo creado con exito.
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+    {% elif 'exito-eliminar-articulo' in request.GET %}
+            <div class="alert alert-success alert-dismissible fade show" role="alert">
+                Artículo eliminado con exito.
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+    {% endif %}
+        </br>
+    <div class="text-center">
+        <a class="btn btn-primary modal-borrar"  href="{% url 'crear-articulo' %}">
+            <span class="material-symbols-outlined align-middle">
+                add
+            </span>
+                Crear Nuevo Artículo 
+        </a>      
+    </div>
+</br>
         <div class="table-responsive">
             <table class="table table-hover">
                 <thead class="table-dark">
@@ -36,38 +57,26 @@
                         </td>
                         <td class="articulo-index texto-fila">{{a.creacion|date:"D d M Y"}}</td>
                         <td class="articulo-index texto-fila">{{a.actualizacion|date:"D d M Y"}}</td>
-                        <td>
-                            {% comment %}                             
-                            <a class="btn btn-outline-primary" href="/crud/videogames/detail/{{v.idVideogame}}">
-                                <span class="fs-2 text-primary">
-                                    <i class="fa-solid fa-eye"></i>
-                                </span>
-                            </a>                        
-                            {% endcomment %}
-                            
+                        <td>     
                             <a class="btn btn-warning" href="{% url 'editar-articulo' idArticulo=a.id %}">
-                                <span class="material-symbols-outlined">
+                                <span class="material-symbols-outlined align-middle">
                                     edit
                                 </span>
+                                Editar
                             </a>
 
                             <a class="btn btn-danger modal-borrar" data-bs-toggle="modal" data-bs-target="#staticBackdrop" data-href="{% url 'eliminar-articulo' idArticulo=a.id %}">
-                                <span class="material-symbols-outlined">
+                                <span class="material-symbols-outlined align-middle">
                                     delete
                                 </span>
+                                Borrar
                             </a>
-                            {% comment %}  
-                            <a class="btn btn-outline-danger modal-borrar" data-bs-toggle="modal" data-bs-target="#staticBackdrop" data-href="{% url 'videogame-delete' videogame_id=v.idVideogame %}">
-                                <span class="fs-2 text-danger">
-                                    <i class="fa-solid fa-trash-can"></i>
-                                </span>
-                            </a> {% endcomment %}
                         </td>
                     </tr>
                     {% endfor %}
                 </tbody>
             </table>
-      
+            
         </div>
     </div>
     </div>

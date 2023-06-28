@@ -440,7 +440,7 @@ article{
   box-shadow: none !important;
   border: 1px solid #333333;
 }
-article .controles *{
+article .controles >*{
   float: right;
 }
 .btn-eliminar{

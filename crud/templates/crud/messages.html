@@ -16,6 +16,12 @@
                 <h1 class="text-center">Mensajes</h1>
                 <hr>
             </br>
+            {% if 'exito-eliminar-mensaje' in request.GET %}
+                <div class="alert alert-success alert-dismissible fade show" role="alert">
+                    Mensaje eliminado con exito.
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+            {% endif %} 
         </br>
     </br>
                 {% for m in mensajes %}
@@ -27,9 +33,10 @@
                                     {{m.mensaje}}
                                 </p>
                                 <a class="btn btn-danger modal-borrar btn-eliminar" data-bs-toggle="modal" data-bs-target="#staticBackdrop" data-href="{% url 'eliminar-mensaje' idMensaje=m.id %}">
-                                    <span class="material-symbols-outlined">
+                                    <span class="material-symbols-outlined align-middle">
                                         delete
                                     </span>
+                                    Borrar
                                 </a> 
                             </article>
                 {% endfor %}
