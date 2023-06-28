@@ -510,3 +510,16 @@ article .controles>*{
   clear: both;
 }
 
+.listasdark tr{
+  border-color: rgba(255,255,255,.1);
+}
+.listasdark tr * {
+  color: white !important;
+}
+.listasdark tr:hover{
+  background-color: rgba(255,255,255,.1);
+  color: white !important;
+}
+.listasdark tr:hover *{
+  color: white !important;
+}
