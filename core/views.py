@@ -27,11 +27,11 @@ def contact(request):
     return render(request,'core/contact.html',context)
 
 def articles(request):
-    context = {'articulos':Articulo.objects.all()}
+    context = {'articulos':Articulo.objects.all(),}
     return render(request,'core/articles.html',context)
 
 def articles_by_company(request,compania):
-    context = {'articulos':Articulo.objects.filter(id_compania=compania)}
+    context = {'articulos':Articulo.objects.filter(id_compania=compania),'cantidadArticulos':Articulo.objects.filter(id_compania=compania).count()}
     return render(request,'core/articles.html',context)
   
 def articulo_completo(request,id_articulo):
