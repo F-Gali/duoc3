@@ -2,7 +2,10 @@ $(document).ready(()=>{
     let errores = Array.from(document.getElementsByClassName("closeted"));
     errores.forEach((elemento)=>{
         elemento.style.display = "none";
-    })
+    });
+    try{
+        $("#areaedit").on('focusout', ()=>validarArea());
+    }catch{}
 })
 
 // $("#error_rut")[0].style.display="none";
@@ -353,3 +356,18 @@ function validarAutor(){
 }
 
 
+function validarArea(){
+    console.log("test")
+    let area = document.getElementById("areaedit");
+    if( area.innerHTML.replace('<br>','').trim().length <= 0){
+        $("#error_area_min")[0].style.display = "block";
+        $("#error_area_max")[0].style.display = "none";
+    }else if( area.innerHTML.replace('<br>','').trim().length >= 4096){
+        $("#error_area_min")[0].style.display = "none";
+        $("#error_area_max")[0].style.display = "block";
+
+    }else{
+        $("#error_area_min")[0].style.display = "none";
+        $("#error_area_max")[0].style.display = "none";
+    }
+}

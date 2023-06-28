@@ -1,3 +1,6 @@
+.colorfondo{
+  background-color: #fdf0d5;
+}
 header {
   position: relative;
   background-color: black;
@@ -81,9 +84,10 @@ body {
 
 .fondo{
   background-color: #fdf0d5;
-  width: calc(100% + 6rem);
+  width: 100%;
+  /* width: calc(100% + 6rem);
   margin-left: -3rem;
-  margin-top: -3rem;
+  margin-top: -3rem; */
 }
 
 .fondo-card-body{
@@ -357,6 +361,7 @@ body {
   max-width: initial !important;
   margin: 0 !important;
   padding: 0 !important;
+  background-color: #fdf0d5 !important;
 }
 .principal-contact{
   max-width: initial !important;

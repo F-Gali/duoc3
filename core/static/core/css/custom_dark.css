@@ -1,3 +1,6 @@
+.colorfondo{
+  background-color: #0a0a0a;
+}
 header {
   position: relative;
   background-color: black;
@@ -79,9 +82,10 @@ body {
 .fondo{
   background-color: #0a0a0a;
   color: whitesmoke;
-  width: calc(100% + 6rem);
+  width: 100%;
+  /* width: calc(100% + 6rem);
   margin-left: -3rem;
-  margin-top: -3rem;
+  margin-top: -3rem; */
 }
 main > section > .container > .card { border: none !important; }
 
@@ -408,6 +412,7 @@ nav .nav-link.active{ color: white !important; font-weight: bolder;}
   max-width: initial !important;
   margin: 0 !important;
   padding: 0 !important;
+  background-color: #0a0a0a;
 }
 
 .principal-contact{

@@ -45,7 +45,7 @@ def articulo_completo(request,id_articulo):
                        'comentario' : Comentario.objects.filter(id_articulo=id_articulo),
                        'cantidadComentarios':Comentario.objects.filter(id_articulo=id_articulo).count(),
                        'form':form,
-                       'html_body2' : articulo.html_body.replace('&imagenSecundaria&',f'<img src="{articulo.articleImage.url}" class="img-fluid article-img" alt="Responsive image">' if articulo.articleImage else 'imagenNoDefinida')}
+                       'html_body2' : articulo.html_body.replace('&amp;imagenSecundaria&amp;',f'<img src="{articulo.articleImage.url}" class="img-fluid article-img" alt="Responsive image">' if articulo.articleImage else 'imagenNoDefinida')}
             
             if request.method == 'POST':
                 form = ComentarioForm(request.POST, request.FILES)

@@ -1,5 +1,5 @@
 $(document).ready(()=>{
-  let xx = document.getElementById("test");
+    $("#areaedit").html( $("#id_html_body").val() )
 })
 
 function setBold(){
@@ -14,7 +14,7 @@ function formato(tipo){
         case "lorem" : document.execCommand('insertText',false,`Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas condimentum finibus pharetra. Ut dapibus dolor nec dictum ultrices. Fusce mattis odio id eros interdum, ut finibus nisi sodales. Quisque ullamcorper felis consequat orci varius commodo. Aliquam tempus, tortor ac tincidunt suscipit, lorem ex euismod justo, sed faucibus sapien tortor in purus. Donec vehicula a felis non laoreet. Quisque cursus tortor velit. `); break;
     }
 }
-function validarEditior(){
+function validarEditor(){
     document.getElementById("id_html_body").value = document.getElementById("areaedit").innerHTML;
     document.getElementById("articulonuevo").submit();
 }

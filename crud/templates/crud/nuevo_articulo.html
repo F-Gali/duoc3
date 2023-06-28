@@ -8,7 +8,7 @@
 
 <section>
     <div class="container principal">
-        <div class="card px-5">
+        <div class="card px-5 colorfondo">
             <div class="card-body fondo p-5">
                 <h1 class="p-5 text-center">Nuevo Artículo</h1>
                 <article>
@@ -48,14 +48,12 @@
                                 <button type="button" class="" onclick="formato('lorem')">
                                     <label>Lorem</label>
                                 </button>
-                                <button type="button" class="fright">
-                                    <span class="material-symbols-outlined icono">code</span>
-                                    <label>HTML</label>
-                                </button>
                             </div>
                             <div id="areaedit" contenteditable="true" id="test"></div>
                             <textarea name="html_body" cols="40" rows="10" class="form-control" maxlength="4096" 
                                 required="" id="id_html_body" style="display: none;"></textarea>
+                            <small id="error_area_min" class="text-danger closeted">No puedes dejar el artículo vacío.</small>
+                            <small id="error_area_max" class="text-danger closeted">El artículo es demasiado largo.</small>
                         </div>
 
                         <div class="form-grou elem mb-3">
@@ -82,7 +80,7 @@
                                 </span>
                                 Volver
                             </a>
-                            <button class="btn btn-primary m-2" type="button" onclick="validarEditior()">
+                            <button class="btn btn-primary m-2" type="button" onclick="validarEditor()">
                                 <span class="material-symbols-outlined align-middle">
                                     add
                                 </span>

@@ -7,22 +7,22 @@
 {% block first_content %}
     <section>   
         <div class="container principal">
+            <header>
+                <div class="overlay"></div>
+                <video playsinline="playsinline" autoplay="autoplay" muted="muted" loop="loop">
+                    <source src="{% static 'core/videos/headerVideo.mp4' %}" type="video/mp4">
+                </video>
+                <div class="container h-100">
+                    <div class="d-flex h-100 text-center align-items-center">
+                        <div class="w-100 text-white">
+                            <h1 class="display-3">Últimas filtraciones y rumores</h1>
+                            <p class="lead mb-0">En esta sección podras encontrar un acceso rapido a los ultimos rumores y </br> filtraciones en la industria que tanto revolucionan a las masas.</p>
+                        </div>
+                    </div>
+                </div>
+            </header>
             <div class="card">
                 <div class="card-body fondo p-5">
-                    <header>
-                    <div class="overlay"></div>
-                        <video playsinline="playsinline" autoplay="autoplay" muted="muted" loop="loop">
-                            <source src="{% static 'core/videos/headerVideo.mp4' %}" type="video/mp4">
-                          </video>
-                          <div class="container h-100">
-                            <div class="d-flex h-100 text-center align-items-center">
-                              <div class="w-100 text-white">
-                                <h1 class="display-3">Últimas filtraciones y rumores</h1>
-                                <p class="lead mb-0">En esta sección podras encontrar un acceso rapido a los ultimos rumores y </br> filtraciones en la industria que tanto revolucionan a las masas.</p>
-                              </div>
-                            </div>
-                          </div>
-                    </header>
                     <hr>
                     <article>
                         <div class="row">
