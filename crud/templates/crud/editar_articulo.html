@@ -93,8 +93,19 @@
         </div>
 
         <div class="form-group elem mb-3 col-12 controles">
-            <button onclick="validarEditor()" class="btn btn-primary" id="actualizar" value="Actualizar">Actualizar</button>
-            <a class="btn btn-success" href="{% url 'lista-articulos' %}">Volver</a>
+            <a class="btn btn-success m-2" href="{% url 'lista-articulos' %}">
+                <span class="material-symbols-outlined align-middle">
+                    undo
+                </span>
+                Volver
+            </a>
+
+            <button onclick="validarEditor()" class="btn btn-primary m-2" id="actualizar" value="Actualizar">
+                <span class="material-symbols-outlined align-middle">
+                    done
+                </span>
+                Actualizar
+            </button>
         </div>  
     </form>
 </article>

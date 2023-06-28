@@ -55,7 +55,7 @@
         </br>
     </br>
                 {% for a in articulos %}
-                            <article class="border border-article p-2 test mb-2 border-opacity-25 mb-5">
+                            <article class="  test mb-2 border-opacity-25 mb-5">
                                 {% if a.headerImage %}
                                     <div class="text-center header-img rounded" style="background-image:url('{{a.headerImage.url}}')">
                                         {% comment %} <img src="{{articulo.headerImage.url}}" class="img-fluid" alt="Responsive image"> {% endcomment %}
@@ -72,7 +72,7 @@
                                 <hr>
                                 {% endif %}
                                 
-                                    <p class="articulo-index">
+                                    <p class="articulo-index p-2">
                                         {{a.html_body|safe|slice:"0:800"}}...<a href="{% url 'article-complete' id_articulo=a.id %}">Ver más</a>
                                     </p>
                                 

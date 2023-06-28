@@ -29,8 +29,19 @@
             <small id="error_nombre_invalido" class="text-danger">El nombre es invalido</small>
         </div>
         <div class="form-group elem mb-3 col-12 controles">
-            <input type="submit" class="btn btn-primary" id="actualizar" value="Actualizar">
-            <a class="btn btn-success" href="{% url 'lista-compania' %}">Volver</a>
+            <a class="btn btn-success m-2" href="{% url 'lista-compania' %}">
+                <span class="material-symbols-outlined align-middle">
+                    undo
+                </span>
+                Volver
+            </a>
+
+            <button onclick="validarEditor()" class="btn btn-primary m-2" id="actualizar" value="Actualizar">
+                <span class="material-symbols-outlined align-middle">
+                    done
+                </span>
+                Actualizar
+            </button>
         </div>  
     </form>
 </article>
