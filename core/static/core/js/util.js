@@ -13,7 +13,7 @@ let api = "https://api.openweathermap.org/data/2.5/weather?lat=💧&lon=🔥&app
 // El siguiente bool alterna el si mostrar el clima o no (openweather tiene cuotas) 
 // y si alternar entre tilemaps bonitos (con cuota) o no.
 // En el caso de los mapas hay una alternativa, en el caso de la temperatura, no.
-let usarApiConCuota = false;
+let usarApiConCuota = true;
 
 $(document).ready(()=>{
     // Fecha y Hora
