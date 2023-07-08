@@ -68,7 +68,6 @@ def login(request):
                     }
 
                     request.session['usuario'] = usuario
-                    messages.success(request,"Ingreso correcto!!!!")
                     return redirect('/home')
                 else:
                     messages.error(request,"Datos mal ingresados o el usuario no existe!!!")
@@ -82,11 +81,5 @@ def logout(request):
     if 'usuario' in request.session:
         del request.session['usuario']
     
-    return redirect('/')
+    return redirect('/home')
 
-
-def success(request):
-    if 'usuario' not in request.session:
-        return redirect('/')
-        
-    return render(request, 'login/success.html')
