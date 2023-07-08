@@ -102,6 +102,7 @@
                         </a>
                     </div>
                     <br>
+                    {% if request.session.usuario.rol == 'EDITOR' %}
                     <h4>Acceso Staff</h4>
                     <hr>
                     <a href="{% url 'lista-articulos' %}">
@@ -109,6 +110,7 @@
                             <span class="material-symbols-outlined">key</span>Acceso Admin
                         </button>
                     </a>
+                    {% endif%}
                 </div>
                 <div class="col-md-4">
                     <!-- <img style="width: 100%;" src="https://i.kym-cdn.com/photos/images/newsfeed/000/856/438/e1c.jpg">     -->

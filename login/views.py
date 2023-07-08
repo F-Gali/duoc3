@@ -2,7 +2,32 @@ from django.shortcuts import render, redirect, HttpResponse
 from django.contrib import messages
 from .models import *
 import bcrypt
+from functools import wraps
 # Create your views here.
+
+def logeado(function):
+    @wraps(function)
+    def wrap(request,*args,**kwargs):
+        if 'usuario' not in request.session:
+            messages.error(request,'ACCESO DENEGADO: DESER ESTAR LOGEADO PARA INGRESAR A ESTA PÁGINA.')
+            return redirect('/login/')
+        else:
+            return function(request,*args,**kwargs)
+    return wrap
+
+def editor(function):
+    @wraps(function)
+    def wrap(request,*args,**kwargs):
+            if 'usuario' not in request.session:
+                messages.error(request,'ACCESO DENEGADO: DESER ESTAR LOGEADO PARA INGRESAR A ESTA PÁGINA.')
+                return redirect('/login/')
+            else:
+                if request.session['usuario'].get('rol') != 'EDITOR':
+                    messages.error(request,'ACCESO DENEGADO: DEBES SER UN EDITOR DE LA PÁGINA PARA INGRESAR.')
+                    return redirect('/login/')
+                else:
+                    return function(request,*args,**kwargs)
+    return wrap
 
 def home(request):
     return render(request,'login/login.html')

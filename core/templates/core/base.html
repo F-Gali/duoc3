@@ -103,10 +103,9 @@
                         </a>
                     </div>
                     <br>
+                    {% if request.session.usuario.rol == 'EDITOR' %}
                     <h4>Acceso Staff</h4>
                     <hr>
-                    {% if request.session.usuario.rol == 'EDITOR'%}
-
                     <a href="{% url 'lista-articulos' %}">
                         <button type="button" class="btn btn-warning" id="btnAdmin">
                             <span class="material-symbols-outlined">key</span>Acceso Admin

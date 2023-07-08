@@ -3,14 +3,23 @@ from django.urls import reverse;
 
 from .models import *
 from .forms import *
+from functools import wraps
+from django.contrib import messages
+from login.views import logeado,editor
 # Create your views here.
+
+
+
+@editor
 def root(request):
     return redirect(listado_articulos)
 
+@editor
 def listado_articulos(request):
     context = {'articulos':Articulo.objects.all()}
     return render(request,'crud/articulos.html',context)
 
+@editor
 def crear_articulo(request):
     form = ArticuloForm()
     context = { 'form' : form }
@@ -23,6 +32,7 @@ def crear_articulo(request):
             return redirect(request.path + '?error')
     return render(request,'crud/nuevo_articulo.html', context)
 
+@editor
 def eliminar_articulo(request,idArticulo):
         try:
             articulo = Articulo.objects.get(id = idArticulo)
@@ -31,6 +41,7 @@ def eliminar_articulo(request,idArticulo):
         except:
             return redirect(reverse('lista-articulos') + '?error')
 
+@editor
 def editar_articulo(request,idArticulo):
     try:
         articulo = Articulo.objects.get(id = idArticulo)
@@ -48,14 +59,17 @@ def editar_articulo(request,idArticulo):
     except:
         return render(request,'crud/editar_articulo.html' + '?NO_EXIST')
 
+@editor
 def mensajes(request):
     context = {'mensajes':Mensaje.objects.all()}
     return render(request,'crud/messages.html',context)
 
+@editor
 def listado_compania(request):
     context = {'companias':Compania.objects.all()}
     return render(request,'crud/companias.html',context)
 
+@editor
 def crear_compania(request):
     form = CompaniaForm()
     context = { 'form' : form }
@@ -68,6 +82,7 @@ def crear_compania(request):
             return redirect(request.path + '?error')
     return render(request,'crud/nueva_compania.html', context)
 
+@editor
 def eliminar_compania(request,idCompania):
     try:
             compania = Compania.objects.get(id = idCompania)
@@ -77,6 +92,7 @@ def eliminar_compania(request,idCompania):
             return redirect(reverse('lista-compania') + '?error')
     
 
+@editor
 def editar_compania(request,idCompania):
     #try:
         compania = Compania.objects.get(id = idCompania)
@@ -93,11 +109,13 @@ def editar_compania(request,idCompania):
         return render(request,'crud/editar_compania.html',context)
     #except:
     #   return render(request,'crud/editar_compania.html' + '?NO_EXIST') 
-    
+
+@editor
 def listado_comentarios(request):
     context = {'comentario':Comentario.objects.all()}
     return render(request,'crud/comentarios.html',context)
 
+@editor
 def eliminar_comentario(request,idComentario):
     try:
             comentario = Comentario.objects.get(id = idComentario)
@@ -106,6 +124,7 @@ def eliminar_comentario(request,idComentario):
     except:
             return redirect(reverse('lista-comentarios') + '?error')
 
+@editor
 def eliminar_mensaje(request,idMensaje):
     try:
             mensaje = Mensaje.objects.get(id = idMensaje)
