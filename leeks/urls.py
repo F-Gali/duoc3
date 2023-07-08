@@ -28,8 +28,8 @@ urlpatterns = [
     path('', include('core.urls')),
     path('crud/', include('crud.urls')),
     path('api/',include('api.urls')),
+    path('login/',include('login.urls')),
     path("admin/", admin.site.urls),
-    path("accounts/", include("django.contrib.auth.urls")),
 ]
 
 if settings.DEBUG:

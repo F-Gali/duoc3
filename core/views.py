@@ -83,8 +83,3 @@ def crear_articulo(request):
             return redirect(request.path + '?error')
     return render(request,'crud/nuevo_articulo.html', context)
 
-def login(request):
-    request.session["usuario"]="ajohnson"
-    usuario = request.session["usuario"]
-    context = {'usuario':usuario}
-    return render(request,'core/login.html')
