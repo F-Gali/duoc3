@@ -59,7 +59,7 @@ ROOT_URLCONF = 'leeks.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [BASE_DIR / "templates",],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -71,6 +71,7 @@ TEMPLATES = [
         },
     },
 ]
+LOGIN_REDIRECT_URL = 'login'
 
 WSGI_APPLICATION = 'leeks.wsgi.application'
 
