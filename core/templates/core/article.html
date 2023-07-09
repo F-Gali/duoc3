@@ -51,7 +51,7 @@
             {% endif %}
        
    
-
+    {% if request.session.usuario != None %}
     <h1 class="text-center">Deja tu comentario</h1>
     <form data-bs-theme="light" action="" method="post" enctype="multipart/form-data" id="comentarionuevo">
         {% csrf_token %}
@@ -65,10 +65,6 @@
             <textarea name="mensaje" cols="40" rows="10" class="form-control" maxlength="4096" 
                 required="" id="id_mensaje" style="display: none;"></textarea>
         </div>
-        <!-- <div class="form-group elem mb-3">
-            <label for="id_articulo" class="form-label">algo</label>
-                {{form.id_articulo}}
-        </div>  -->
         <div class="form-group elem mb-3 col-12 controles">
             <button class="btn btn-primary" type="button" onclick="validarComentario()">Ingresar Comentario</button>
         </div>
@@ -76,6 +72,10 @@
         <div class="elem mb-3"></div>
         <div class="elem mb-3"></div>
     </form>
+    {% else %}
+    <h1 class="text-center">Debe estar logeado para dejar un comentario. . . .</h1>
+
+    {% endif %}
 </div>
 </div>
 </section>

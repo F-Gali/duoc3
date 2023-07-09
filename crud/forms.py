@@ -71,6 +71,7 @@ class MensajeForm(ModelForm):
             'mensaje':forms.Textarea(attrs={'class':'form-control','name':'mensaje','id':'mensaje','cols':'30','rows':'10'})
         }
     
+
 class ComentarioForm(ModelForm):
     class Meta:
         model = Comentario

@@ -33,6 +33,7 @@ class Comentario(models.Model):
     mensaje = models.CharField(max_length=100)
     id_articulo = models.ForeignKey(Articulo, on_delete=models.CASCADE)
     creacion = models.DateTimeField(verbose_name='Fecha Registro', auto_now_add=True)
+
 # Nota
 # Admin de django
 # john_romero_carmack
