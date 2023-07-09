@@ -5,7 +5,28 @@
 {% load static %}
 
 {% block first_content %}
-    <section>   
+{% if messages %}
+    <div class="modal" style="display:block" id="mensajes" tabindex="-1{{ request.session.level_mensaje }} alert-dismissible">
+        <div class="modal-dialog">
+            <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Te has logeado correctamente!</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                {% for message in messages %}
+                <li><strong>{{message}}</strong></li>    
+                {% endfor %}
+            </div>
+            <div class="modal-footer">
+                <button type="button" onclick="$('#mensajes').css('display','none')" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>        
+            </div>
+            </div>
+        </div>
+        </div>
+{% endif %}    
+
+<section>   
         <div class="container principal">
             <header>
                 <div class="overlay"></div>
@@ -69,3 +90,4 @@
         </div>
     </section>
 {% endblock %}
+

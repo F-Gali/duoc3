@@ -93,6 +93,7 @@ def login(request):
                     }
 
                     request.session['usuario'] = usuario
+                    messages.success(request,"Usuario logeado con éxito!!!")
                     return redirect('/home')
                 else:
                     messages.error(request,"Datos mal ingresados o el usuario no existe!!!")
