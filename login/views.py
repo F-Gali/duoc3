@@ -10,7 +10,7 @@ def logeado(function):
     def wrap(request,*args,**kwargs):
         if 'usuario' not in request.session:
             messages.error(request,'ACCESO DENEGADO: DESER ESTAR LOGEADO PARA INGRESAR A ESTA PÁGINA.')
-            return redirect('/login/')
+            return redirect('/home')
         else:
             return function(request,*args,**kwargs)
     return wrap
@@ -20,15 +20,26 @@ def editor(function):
     def wrap(request,*args,**kwargs):
             if 'usuario' not in request.session:
                 messages.error(request,'ACCESO DENEGADO: DESER ESTAR LOGEADO PARA INGRESAR A ESTA PÁGINA.')
-                return redirect('/login/')
+                return redirect('/home')
             else:
                 if request.session['usuario'].get('rol') != 'EDITOR':
                     messages.error(request,'ACCESO DENEGADO: DEBES SER UN EDITOR DE LA PÁGINA PARA INGRESAR.')
-                    return redirect('/login/')
+                    return redirect('/home')
                 else:
                     return function(request,*args,**kwargs)
     return wrap
 
+def alreadyLoged(function):
+    @wraps(function)
+    def wrap(request,*args,**kwargs):
+        if 'usuario' in request.session:
+            messages.error(request,'ACCESO DENEGADO: YA ESTÁS LOGEADO.')
+            return redirect('/home')
+        else:
+            return function(request,*args,**kwargs)
+    return wrap
+
+@alreadyLoged
 def home(request):
     return render(request,'login/login.html')
 
@@ -93,7 +104,7 @@ def login(request):
                     }
 
                     request.session['usuario'] = usuario
-                    messages.success(request,"Usuario logeado con éxito!!!")
+                    messages.success(request,"INGRESO EXITOSO")
                     return redirect('/home')
                 else:
                     messages.error(request,"Datos mal ingresados o el usuario no existe!!!")

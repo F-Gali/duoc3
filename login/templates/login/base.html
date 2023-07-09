@@ -46,8 +46,13 @@
                     <li class="nav-item">
                         <a class="nav-link {% block about %}{% endblock %}" href="{% url 'about' %}">Sobre Nosotros</a>
                     </li>
-                    {% if usuario != None %}
-                        {{usuario}}
+                    {% if request.session.usuario != None %}
+                    <li class="nav-item">
+                        <p class="nav-link">Bienvenido {{request.session.usuario.first_name}}</p>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link {% block logout %}{% endblock %} " href="{% url 'logout'%}">Logout</a>
+                    </li>
                     {% else %}
                     <li class="nav-item">
                         <a class="nav-link {% block login %}{% endblock %} " href="{% url 'home-login' %}">Login</a>
