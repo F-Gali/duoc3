@@ -531,3 +531,64 @@ div.filtro{
 .test{
   background-color: black;
 }
+#loginForm .card{
+  border: none !important;
+}
+#loginBack{
+  background-color: black;
+  max-width: initial;
+  min-height: calc(80vh - 70px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 6vh 0px;
+}
+#loginBack .card-title{
+  text-align: center;
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin: 0 0 !important;
+}
+#loginBack .card-header p{
+  opacity: .7;
+  text-align: center;
+  display: block;
+}
+#loginBack .card-header h2{
+  color: white;
+}
+#loginBack .card-header{
+  padding: 20px 0 0 0;
+  background-color: transparent;
+}
+#loginForm label {
+  display: block;
+}
+.loginCont {
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.loginSection{
+
+}
+.registerSection{
+
+}
+.ocultarSeccion {
+  display: none;
+}
+.acciones{
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  
+}
+.acciones input:first-of-type{
+  flex-grow: 1;
+}
+.asesFalsos{
+  color: rgb(106, 163, 247);
+  text-decoration: underline;
+  cursor: pointer;
+}

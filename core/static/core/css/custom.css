@@ -498,3 +498,64 @@ div.filtro{
 .test{
   background-color: whitesmoke;
 }
+#loginForm .card{
+  border: none !important;
+}
+#loginBack{
+  background-color: #fdf0d5;
+  max-width: initial;
+  min-height: calc(80vh - 70px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 6vh 0px;
+}
+#loginBack .card-title{
+  text-align: center;
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin: 0 0 !important;
+}
+#loginBack .card-header p{
+  opacity: .7;
+  text-align: center;
+  display: block;
+}
+#loginBack .card-header h2{
+  color: #303030;
+}
+#loginBack .card-header{
+  padding: 20px 0 0 0;
+  background-color: transparent;
+}
+#loginForm label {
+  display: block;
+}
+.loginCont {
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.loginSection{
+
+}
+.registerSection{
+
+}
+.ocultarSeccion {
+  display: none;
+}
+.acciones{
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  
+}
+.acciones input:first-of-type{
+  flex-grow: 1;
+}
+.asesFalsos{
+  color: rgb(54, 100, 168);
+  text-decoration: underline;
+  cursor: pointer;
+}

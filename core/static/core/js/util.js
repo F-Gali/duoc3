@@ -86,12 +86,24 @@ function lumos( forzarOscuro ){
         $( "link" ).last()[0].href = urlClara;
         $( ".navbar-nav" )[0].children[1].setAttribute( "data-falsebs-theme" , "light" );
         //$( "form" )[0]?.setAttribute( "data-bs-theme" , "light" );
-        $("form").toArray().forEach( item=>item.setAttribute( "data-bs-theme" , "light" ))
+        $("form").toArray().forEach( item=>item.setAttribute( "data-bs-theme" , "light" ));
     }
     else{
         $( "link" ).last()[0].href = urlOscura;
         $( ".navbar-nav" )[0].children[1].setAttribute( "data-bs-theme" , "dark" );
         //$( "form" )[0]?.setAttribute( "data-bs-theme" , "dark" );
-        $("form").toArray().forEach( item=>item.setAttribute( "data-bs-theme" , "dark" ))
+        $("form").toArray().forEach( item=>item.setAttribute( "data-bs-theme" , "dark" ));
+    }
+}
+
+
+function jutsuReemplazoDeCuerpo(){
+    let esLogin = !document.getElementById("loginSection").classList.contains('ocultarSeccion');
+    if(esLogin){
+        document.getElementById("loginSection").classList.add('ocultarSeccion');
+        document.getElementById("registerSection").classList.remove('ocultarSeccion');
+    }else{
+        document.getElementById("loginSection").classList.remove('ocultarSeccion');
+        document.getElementById("registerSection").classList.add('ocultarSeccion');
     }
 }
