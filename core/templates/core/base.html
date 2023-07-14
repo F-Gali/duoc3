@@ -103,7 +103,7 @@
                         </a>
                     </div>
                     <br>
-                    {% if request.session.usuario.rol == 'EDITOR' %}
+                    {% if request.session.usuario.rol == 'EDITOR'  or request.session.usuario.rol == 'ADMIN'%}
                     <h4>Acceso Staff</h4>
                     <hr>
                     <a href="{% url 'lista-articulos' %}">

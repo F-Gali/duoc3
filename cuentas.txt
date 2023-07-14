@@ -1,0 +1,12 @@
+Cuenta tipo USER: 
+Email: cuenta@user.com 
+pass: 1234Pass  
+
+Cuenta tipo EDITOR:
+Email: cuenta@editor.com
+pass: 1234Pass
+
+Cuenta tipo ADMIN:
+Email: cuenta@admin.com
+pass: 1234Pass
+

@@ -5,7 +5,9 @@ from .models import *
 from .forms import *
 from functools import wraps
 from django.contrib import messages
-from login.views import logeado,editor
+from login.views import logeado,editor,admin
+from login.models import *
+from login.forms import *
 # Create your views here.
 
 
@@ -132,3 +134,35 @@ def eliminar_mensaje(request,idMensaje):
             return redirect(reverse('mensajes') + '?exito-eliminar-mensaje')
     except:
             return redirect(reverse('mensajes') + '?error')
+
+@admin
+def lista_Usuarios(request):
+    context = {'usuarios':User.objects.all()}
+    return render(request,'crud/usuarios.html',context)
+
+@admin
+def eliminar_usuario(request,idUsuario):
+    try:
+            usuario = User.objects.get(id = idUsuario)
+            usuario.delete()
+            return redirect(reverse('lista-usuarios') + '?exito-eliminar-usuario')
+    except:
+            return redirect(reverse('lista-usuarios') + '?error')
+
+@admin
+def editar_usuario(request,idUsuario):
+    # try:
+        usuario = User.objects.get(id = idUsuario)
+        form = UsuarioForm(instance=usuario)
+        if request.method == 'POST':
+            form = UsuarioForm(request.POST, request.FILES, instance=usuario)
+            if form.is_valid():
+                form.save()
+                return redirect(request.path + '?exito')
+            else:
+                return redirect(reverse('editar-usuario') + idUsuario)
+
+        context = {'form':form}
+        return render(request,'crud/editar_usuario.html',context)
+    # except:
+    #    return render(request,'crud/editar_usuario.html' + '?NO_EXIST')

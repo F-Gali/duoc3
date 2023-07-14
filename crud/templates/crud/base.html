@@ -43,6 +43,9 @@
                             <li><a class="nav-link {% block lista %}{% endblock %}" href="{% url 'lista-articulos' %}">Lista Articulos</a></li>
                             <li><a class="nav-link {% block compania %}{% endblock %}" href="{% url 'lista-compania' %}">Lista Compañias</a></li>
                             <li><a class="nav-link {% block comentario %}{% endblock %}" href="{% url 'lista-comentarios' %}">Lista Comentarios</a></li>
+                            {% if request.session.usuario.rol == 'ADMIN'%}
+                                <li><a class="nav-link {% block usuario %}{% endblock%}" href="{% url 'lista-usuarios'%}">Lista Usuarios</a></li>
+                            {% endif %}
                         </ul>
                     </li>
                     <li class="nav-item dropdown" data-bs-theme="light">
@@ -58,9 +61,11 @@
                     <li>
                         <a class="nav-link {% block messages %}{% endblock %}" href="{% url 'mensajes' %}">Mensajes</a>
                     </li>
+                    {% if request.session.usuario.rol == 'ADMIN'%}
                     <li>
                         <a class="nav-link" href="{% url 'admin:index' %}">Admin</a>
                     </li>
+                    {% endif %}
                 </ul>
             </div>
             <div id="util">

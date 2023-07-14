@@ -22,8 +22,22 @@ def editor(function):
                 messages.error(request,'ACCESO DENEGADO: DESER ESTAR LOGEADO PARA INGRESAR A ESTA PÁGINA.')
                 return redirect('/home')
             else:
-                if request.session['usuario'].get('rol') != 'EDITOR':
+                if request.session['usuario'].get('rol') != 'EDITOR' and request.session['usuario'].get('rol') != 'ADMIN':
                     messages.error(request,'ACCESO DENEGADO: DEBES SER UN EDITOR DE LA PÁGINA PARA INGRESAR.')
+                    return redirect('/home')
+                else:
+                    return function(request,*args,**kwargs)
+    return wrap
+
+def admin(function):
+    @wraps(function)
+    def wrap(request,*args,**kwargs):
+            if 'usuario' not in request.session:
+                messages.error(request,'ACCESO DENEGADO: DESER ESTAR LOGEADO PARA INGRESAR A ESTA PÁGINA.')
+                return redirect('/home')
+            else:
+                if request.session['usuario'].get('rol') != 'ADMIN':
+                    messages.error(request,'ACCESO DENEGADO: DEBES SER UN ADMINISTRADOR DE LA PÁGINA PARA INGRESAR.')
                     return redirect('/home')
                 else:
                     return function(request,*args,**kwargs)

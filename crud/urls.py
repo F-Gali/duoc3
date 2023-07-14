@@ -15,4 +15,7 @@ urlpatterns = [
     path('companias/eliminar/<int:idCompania>/', eliminar_compania, name="eliminar-compania"),
     path('comentarios/',listado_comentarios, name="lista-comentarios"),
     path('comentario/eliminar/<int:idComentario>/', eliminar_comentario, name="eliminar-comentario"),
+    path('usuarios/', lista_Usuarios, name="lista-usuarios"),
+    path('usuarios/eliminar/<int:idUsuario>/', eliminar_usuario, name="eliminar-usuario"),
+    path('usuarios/editar/<int:idUsuario>/', editar_usuario, name="editar-usuario")
 ]
